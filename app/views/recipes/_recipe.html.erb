@@ -1,0 +1,12 @@
+<li>
+  <span class="content"><%= recipe.name %></span>
+  <span class="content"><%= recipe.description %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(recipe.created_at) %> ago.
+  </span>
+  <% if current_user?(recipe.user) %>
+    <%= link_to "delete", recipe, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: recipe.name %>
+  <% end %>
+</li>

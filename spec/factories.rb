@@ -14,4 +14,10 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+
+  factory :recipe do
+    name "Lorem ipsum"
+    user
+  end
 end

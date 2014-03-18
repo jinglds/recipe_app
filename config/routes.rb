@@ -2,7 +2,9 @@ RecipeApp::Application.routes.draw do
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :recipes, only: [:create, :destroy]
   root  'static_pages#home'
+  match '/newrecipe',  to: 'recipes#new',       via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
