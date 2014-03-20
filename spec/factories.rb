@@ -18,6 +18,17 @@ FactoryGirl.define do
 
   factory :recipe do
     name "Lorem ipsum"
+    description
+    level
+    course
+    prep_time
+    cook_time
+    serving
+    ingredients
+    directions
+    privacy
+
+
     user
   end
 end

@@ -1,12 +1,53 @@
-<li>
-  <span class="content"><%= recipe.name %></span>
-  <span class="content"><%= recipe.description %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(recipe.created_at) %> ago.
-  </span>
-  <% if current_user?(recipe.user) %>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      
+      <% if recipe.image.blank? -%>
+      <p>NO IMAGE</p>
+      <% else %>
+          <div class="img_container"> 
+          <img src="<%= url_for(:action => 'plant_pic', :id => image.id) %>"/>
+          </div>
+        <% end -%>
+      <% end -%>
+
+
+      <div class="caption">
+
+        <h3><%= link_to recipe.name, recipe %></h3>
+        <small>by 
+        <span class="user">
+          <%= link_to recipe.user.name, recipe.user %>
+        </span> </small>
+        <strong><span class="content"><%= recipe.description %></span></strong>
+        <dl class="dl-horizontal">
+          <dt>LEVEL:</dt>
+          <dd><%= recipe.level %></dd>
+          <dt>COURSE:</dt>
+          <dd><%= recipe.course %></dd>
+          <dt>PREPTIME:</dt>
+          <dd><%= recipe.prep_time %></dd>
+          <dt>COOKTIME:</dt>
+          <dd><%= recipe.cook_time %></dd>
+          <dt>SERVING:</dt>
+          <dd><%= recipe.serving %></dd>
+        </dl>
+          
+          
+          <span class="timestamp">
+           Posted <%= time_ago_in_words(recipe.created_at) %> ago.
+          </span>
+          <% if current_user?(recipe.user) %>
     <%= link_to "delete", recipe, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
   <% end %>
-</li>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/comment_form' %>
+
+

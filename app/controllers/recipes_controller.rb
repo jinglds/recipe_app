@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe  = current_user.recipes.build
+    @recipe = current_user.recipes.build
   end
 
   def destroy
@@ -22,10 +22,26 @@ class RecipesController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+    # @user = User.find(params[:id])
+    # @microposts = @user.microposts.paginate(page: params[:page])
+    @recipe = Recipe.find(params[:id])
+    @comment = Comment.new 
+    @comment_items =  @recipe.comment_feed.paginate(page: params[:page])
+  end
   private
 
     def recipe_params
-      params.require(:recipe).permit(:name)
+      params.require(:recipe).permit(:name,
+                                      :description,
+                                      :level,
+                                      :course,
+                                      :prep_time,
+                                      :cook_time,
+                                      :serving,
+                                      :ingredients,
+                                      :directions,
+                                      :privacy)
     end
 
     def correct_user

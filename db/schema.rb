@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318154053) do
+ActiveRecord::Schema.define(version: 20140319185749) do
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "form_options", force: true do |t|
     t.datetime "created_at"
@@ -41,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140318154053) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_path"
   end
 
   add_index "recipes", ["user_id", "created_at"], name: "index_recipes_on_user_id_and_created_at"

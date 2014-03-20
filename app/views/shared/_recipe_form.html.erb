@@ -6,6 +6,8 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
       <%= f.label :level %>
+      <%= f.collection_select :level, FormOptions::LEVELS,:to_s, :to_s, :include_blank => true %>
+      <%= f.label :course %>
       <%= f.collection_select :course, FormOptions::COURSES,:to_s, :to_s, :include_blank => true %>
       <%= f.label :prep_time %>
       <%= f.text_field :prep_time %>
@@ -13,6 +15,8 @@
       <%= f.text_field :cook_time %>
       <%= f.label :serving %>
       <%= f.text_field :serving %>
+      <%= f.label :ingredients %>
+      <%= f.text_field :ingredients %>
       <%= f.label :directions %>
       <%= f.text_field :directions %>
       <%= f.label :privacy %>

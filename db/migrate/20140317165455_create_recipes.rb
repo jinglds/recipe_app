@@ -16,6 +16,5 @@ class CreateRecipes < ActiveRecord::Migration
       t.timestamps
     end
     add_index :recipes, [:user_id, :created_at]
-    add_index :recipes, [:user_id, :created_at]
   end
 end

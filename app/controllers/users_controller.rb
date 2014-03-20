@@ -9,8 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    # @microposts = @user.microposts.paginate(page: params[:page])
     @recipes = @user.recipes.paginate(page: params[:page])
+    @comment = Comment.new
+    # @comment_items = Recipe.comments
   end
 
   def destroy
