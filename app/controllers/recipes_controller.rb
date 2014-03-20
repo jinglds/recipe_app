@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
+    # @recipe.image = params[:file]
     if @recipe.save
       flash[:success] = "Recipe created!"
       redirect_to root_url
@@ -41,7 +42,9 @@ class RecipesController < ApplicationController
                                       :serving,
                                       :ingredients,
                                       :directions,
-                                      :privacy)
+                                      :privacy,
+                                      :image
+                                      )
     end
 
     def correct_user

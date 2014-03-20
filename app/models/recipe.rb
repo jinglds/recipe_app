@@ -4,7 +4,8 @@ class Recipe < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
   validates :name, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
-  
+  mount_uploader :image, ImageUploader
+  # validates :image, presence: false
 
 
   # Returns recipes from the users being followed by the given user.

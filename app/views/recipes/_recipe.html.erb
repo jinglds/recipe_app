@@ -3,14 +3,11 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       
-      <% if recipe.image.blank? -%>
-      <p>NO IMAGE</p>
-      <% else %>
-          <div class="img_container"> 
-          <img src="<%= url_for(:action => 'plant_pic', :id => image.id) %>"/>
-          </div>
-        <% end -%>
-      <% end -%>
+
+          
+          <%= image_tag recipe.image_url(:big_thumb).to_s %>
+
+
 
 
       <div class="caption">
@@ -33,7 +30,9 @@
           <dt>SERVING:</dt>
           <dd><%= recipe.serving %></dd>
         </dl>
-          
+image
+        <%= recipe.image.to_s %>
+          image
           
           <span class="timestamp">
            Posted <%= time_ago_in_words(recipe.created_at) %> ago.
@@ -43,11 +42,11 @@
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
   <% end %>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+
       </div>
     </div>
   </div>
 </div>
-<%= render 'shared/comment_form' %>
+
 
 
