@@ -16,7 +16,7 @@
     <% if @user.recipes.any? %>
       <h3>Microposts (<%= @user.recipes.count %>)</h3>
       <ol class="microposts">
-        <%= render @recipes %>
+        <%= render 'shared/feed' %>
       </ol>
       <%= will_paginate @recipes %>
     <% end %>

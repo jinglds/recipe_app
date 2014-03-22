@@ -36,16 +36,16 @@ end
 def make_recipes
   users = User.all(limit: 6)
   50.times do
-    # name = Faker::Lorem.words(4)
-    # # level = Faker::Lorem.words(2)
-    # # prep_time = Faker::Number.digit
-    # # cook_time = Faker::Number.digit
-    # course = Faker::Lorem.words(2)
-    # # serving = Faker::Number.digit
-    # description = Faker::Lorem.sentence(5)
-    # ingredients = Faker::Lorem.sentence(6)
-    # directions = Faker::Lorem.sentence(10)
-    # privacy = Faker::Lorem.words(2)
+    name = ['food', 'fish', 'banana', 'apple', 'chocolate', 'cake', 'rice', 'steak', 'milkshake']
+    level = ['1','2','3','4']
+    cook_time = ['10','20','30','40','50','60']
+    course = ['appetizer', 'main', 'dessert', 'beverage']
+    serving = ['1','2','3']
+    description = Faker::Lorem.sentence(5)
+    ingredients = Faker::Lorem.words(10).join
+    directions = Faker::Lorem.sentence(6)
+    privacy = ['public','private','friends-only']
+    image = ['default_food.jpg', 'default_food.jpg']
 
     # users.each { |user| user.recipes.create!( name: name,
     #                                           description: description,
@@ -59,16 +59,17 @@ def make_recipes
     #                                           privacy: privacy
     #                                           ) }
 
-    users.each { |user| user.recipes.create!( name: "Food",
-                                              description: "It's very yummy!!!",
-                                              level: "medium",
-                                              course: "dessert",
-                                              prep_time: "10",
-                                              cook_time: "20",
-                                              serving: "1",
-                                              ingredients: "apple banana",
-                                              directions: "blend apple and banana together",
-                                              privacy: "public"
+    users.each { |user| user.recipes.create!( name: name.sample,
+                                              description: description,
+                                              level: level.sample,
+                                              course: course.sample,
+                                              cook_time: cook_time.sample,
+                                              serving: serving.sample,
+                                              ingredients: ingredients,
+                                              directions: directions,
+                                              image: image.sample,
+                                              privacy: privacy.sample
+                                              
                                               ) }
   end
 end

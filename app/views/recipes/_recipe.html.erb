@@ -1,52 +1,37 @@
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      
 
-          
-          <%= image_tag recipe.image_url(:big_thumb).to_s %>
+<div class="span3">  
+  <div class="thumbnail">
+    
+      <%= image_tag recipe.image_url(:thumb).to_s %>
 
-
-
-
+      <%= @recipe_image %>
       <div class="caption">
 
         <h3><%= link_to recipe.name, recipe %></h3>
         <small>by 
-        <span class="user">
-          <%= link_to recipe.user.name, recipe.user %>
-        </span> </small>
-        <strong><span class="content"><%= recipe.description %></span></strong>
-        <dl class="dl-horizontal">
-          <dt>LEVEL:</dt>
-          <dd><%= recipe.level %></dd>
-          <dt>COURSE:</dt>
-          <dd><%= recipe.course %></dd>
-          <dt>PREPTIME:</dt>
-          <dd><%= recipe.prep_time %></dd>
-          <dt>COOKTIME:</dt>
-          <dd><%= recipe.cook_time %></dd>
-          <dt>SERVING:</dt>
-          <dd><%= recipe.serving %></dd>
-        </dl>
-image
-        <%= recipe.image.to_s %>
-          image
-          
-          <span class="timestamp">
-           Posted <%= time_ago_in_words(recipe.created_at) %> ago.
-          </span>
-          <% if current_user?(recipe.user) %>
-    <%= link_to "delete", recipe, method: :delete,
+          <span class="user">
+            <%= link_to recipe.user.name, recipe.user %>
+          </span> 
+        </small>
+<br>
+          <strong>LEVEL:    </strong><%= recipe.level %><br>
+          <strong>COURSE:   </strong><%= recipe.course %><br>
+          <strong>COOKTIME: </strong><%= recipe.cook_time %><br>
+          <strong>SERVING:  </strong><%= recipe.serving %><br>  
+            
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(recipe.created_at) %> ago.
+        </span>
+        <% if current_user?(recipe.user) %>
+          <%= link_to "delete", recipe, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
-  <% end %>
-
+        <% end %>
+ 
       </div>
-    </div>
+    
   </div>
 </div>
-
 
 

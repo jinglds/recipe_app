@@ -7,6 +7,12 @@ class Recipe < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   # validates :image, presence: false
 
+  scope :all_appetizers, where(course: 'appetizer')
+  scope :all_mains, where(course: 'main')
+  scope :all_desserts, where(course: 'dessert')
+  scope :all_beverages, where(course: 'beverage')
+
+
 
   # Returns recipes from the users being followed by the given user.
   def self.from_users_followed_by(user)
@@ -20,4 +26,62 @@ class Recipe < ActiveRecord::Base
   def comment_feed
     Comment.where("recipe_id =?", id)
   end
+
+
+
+
+
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
+#   def self.filtered_by_course(filter)
+#     find(:all,
+#     :conditions => "course LIKE ? #{filter}"
+# )
+#   end
+
+
+
+  def self.filtered_appetizers
+      all_appetizers
+    
+  end
+
+  def self.filtered_mains
+      all_mains
+    
+  end
+  def self.filtered_desserts
+      all_desserts
+    
+  end
+  def self.filtered_beverages
+      all_beverages
+    
+  end
+
+
+
+
+  # def self.search(search)
+  #   if search
+  #     where('name LIKE ?', "%#{search}%")
+  #   else
+  #     where('name LIKE ?', "%#{}%")
+  #   end
+  # end
+
+  # def self.search(search)
+  #  if search
+  #   find(:all, :conditions => ['first_name LIKE ? || last_name LIKE ? || company_name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+  #  else
+  #   find(:all)
+  #  end
+  # end
 end

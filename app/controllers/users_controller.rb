@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @recipes = @user.recipes.paginate(page: params[:page])
     @comment = Comment.new
     # @comment_items = Recipe.comments
+
+
+    @feed_items = @user.recipes.paginate(page: params[:page])
+
   end
 
   def destroy

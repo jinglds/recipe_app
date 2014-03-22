@@ -1,0 +1,29 @@
+<div class="media">
+    <a href="#" class="pull-left">
+
+      <%= image_tag @recipe.image_url(:thumb).to_s %>
+    </a>
+    <div class="media-body">
+      <h3 class="media-heading"><%= link_to @recipe.name, @recipe %>
+         <small>
+          <i>
+            <span class="user">
+              by <%= link_to @recipe.user.name, @recipe.user %>
+            </span>
+            <span class="timestamp">
+              Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
+            </span>
+          </i>
+        </small>
+      </h3>
+            <i><%= @recipe.description %></i><br>
+          <strong>LEVEL:    </strong><%= @recipe.level %><br>
+          <strong>COURSE:   </strong><%= @recipe.course %><br>
+          <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
+          <strong>SERVING:  </strong><%= @recipe.serving %><br>
+        
+    </div>
+</div>
+
+<strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
+<strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>

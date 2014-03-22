@@ -2,23 +2,21 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
 	  <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, placeholder:"Your Recipe Name" %>
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, placeholder:"E.g. A recipe good for family dinner!" %>
       <%= f.label :level %>
       <%= f.collection_select :level, FormOptions::LEVELS,:to_s, :to_s, :include_blank => true %>
       <%= f.label :course %>
       <%= f.collection_select :course, FormOptions::COURSES,:to_s, :to_s, :include_blank => true %>
-      <%= f.label :prep_time %>
-      <%= f.text_field :prep_time %>
       <%= f.label :cook_time %>
-      <%= f.text_field :cook_time %>
+      <%= f.text_field :cook_time, placeholder:"E.g. 20" %>
       <%= f.label :serving %>
-      <%= f.text_field :serving %>
+      <%= f.text_field :serving, placeholder:"2 persons" %>
       <%= f.label :ingredients %>
-      <%= f.text_field :ingredients %>
+      <%= f.text_area :ingredients, placeholder:"apple" %>
       <%= f.label :directions %>
-      <%= f.text_field :directions %>
+      <%= f.text_area :directions, placeholder:"cut apples" %>
       <%= f.label :privacy %>
       <%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %>
       <%= f.file_field :image %>

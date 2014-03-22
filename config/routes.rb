@@ -12,6 +12,7 @@ RecipeApp::Application.routes.draw do
 end
   
   root  'static_pages#home'
+  match '/index', to: 'recipes#index',          via: 'get'
   match '/newrecipe',  to: 'recipes#new',       via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

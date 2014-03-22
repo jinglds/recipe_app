@@ -1,6 +1,8 @@
 <% if @feed_items.any? %>
   <ol class="microposts">
+  	<ul class="list-inline">
     <%= render partial: 'shared/feed_item', collection: @feed_items %>
+</ul>
   </ol>
   <%= will_paginate @feed_items %>
 <% end %>

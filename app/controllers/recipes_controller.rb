@@ -2,6 +2,8 @@ class RecipesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
+  
+
   def create
     @recipe = current_user.recipes.build(recipe_params)
     # @recipe.image = params[:file]
@@ -24,12 +26,33 @@ class RecipesController < ApplicationController
   end
 
   def show
+    # @recipes.directions
     # @user = User.find(params[:id])
     # @microposts = @user.microposts.paginate(page: params[:page])
+
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new 
-    @comment_items =  @recipe.comment_feed.paginate(page: params[:page])
+    @comment_items =  @recipe.comment_feed.paginate(page: params[:page], per_page: 10)
   end
+
+
+  def index
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
+    else
+      @recipes = Recipe.search(params[:all]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
+    end
+    # # @appetizers = Recipe.appetizers
+    # # @appetizers = Recipe.filtered_by_course(params[:appetizers])
+    @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 4)
+    @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 4)
+    @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 4)
+    @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 4)
+
+  end
+
+
+
   private
 
     def recipe_params
@@ -51,4 +74,5 @@ class RecipesController < ApplicationController
       @recipe = current_user.recipes.find_by(id: params[:id])
       redirect_to root_url if @recipe.nil?
     end
+
 end

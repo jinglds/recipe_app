@@ -1,43 +1,26 @@
+<div class="media">
+    <a href="#" class="pull-left">
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
       <%= image_tag feed_item.image_url(:thumb).to_s %>
-
-      <%= @recipe_image %>
-      <div class="caption">
-
-         <h3><%= link_to feed_item.name, feed_item %></h3>
-        <small>by 
-        <span class="user">
-          <%= link_to feed_item.user.name, feed_item.user %>
-        </span> </small>
-        <strong><span class="content"><%= feed_item.description %></span></strong>
-        <dl class="dl-horizontal">
-          <dt>LEVEL:</dt>
-          <dd><%= feed_item.level %></dd>
-          <dt>COURSE:</dt>
-          <dd><%= feed_item.course %></dd>
-          <dt>PREPTIME:</dt>
-          <dd><%= feed_item.prep_time %></dd>
-          <dt>COOKTIME:</dt>
-          <dd><%= feed_item.cook_time %></dd>
-          <dt>SERVING:</dt>
-          <dd><%= feed_item.serving %></dd>
-        </dl>
-          
-          
-        <span class="timestamp">
-         Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-        </span>
-        <% if current_user?(feed_item.user) %>
-          <%= link_to "delete", feed_item, method: :delete,
-                                   data: { confirm: "You sure?" },
-                                   title: feed_item.name %>
-        <% end %>
- 
-      </div>
+    </a>
+    <div class="media-body">
+      <h3 class="media-heading"><%= link_to feed_item.name, feed_item %>
+         <small>
+          <i>
+            <span class="user">
+              by <%= link_to feed_item.user.name, feed_item.user %>
+            </span>
+            <span class="timestamp">
+              Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+            </span>
+          </i>
+        </small>
+      </h3>
+            <i><%= feed_item.description %></i><br>
+          <strong>LEVEL:    </strong><%= feed_item.level %><br>
+          <strong>COURSE:   </strong><%= feed_item.course %><br>
+          <strong>COOKTIME: </strong><%= feed_item.cook_time %><br>
+          <strong>SERVING:  </strong><%= feed_item.serving %><br>
+        
     </div>
-  </div>
 </div>
-
