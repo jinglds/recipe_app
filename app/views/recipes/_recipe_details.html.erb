@@ -22,8 +22,18 @@
           <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
           <strong>SERVING:  </strong><%= @recipe.serving %><br>
         
-    </div>
-</div>
+        <ol>
+          <% for ingredient in @recipe.ingredients %>
+          <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
+          <% end %>
+        </ol>
+            </div>
+        </div>
 
-<strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back to Recipe', recipe_path %>
+
+
+<!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
 <strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>
+ -->

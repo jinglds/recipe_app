@@ -1,6 +1,14 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :ingredients, dependent: :destroy
+  has_many :directions, dependent: :destroy
+  accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:item].blank? }
+  validates_associated :ingredients, presence: true
+
+  accepts_nested_attributes_for :directions, :reject_if => lambda { |a| a[:content].blank? }
+  validates_associated :directions, presence: true
+
   default_scope -> { order('created_at DESC') }
   validates :name, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true

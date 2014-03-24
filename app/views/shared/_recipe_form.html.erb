@@ -13,13 +13,31 @@
       <%= f.text_field :cook_time, placeholder:"E.g. 20" %>
       <%= f.label :serving %>
       <%= f.text_field :serving, placeholder:"2 persons" %>
-      <%= f.label :ingredients %>
-      <%= f.text_area :ingredients, placeholder:"apple" %>
-      <%= f.label :directions %>
-      <%= f.text_area :directions, placeholder:"cut apples" %>
+
+
+
       <%= f.label :privacy %>
       <%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %>
       <%= f.file_field :image %>
+
+
+      <%= f.fields_for :ingredients do |builder| %>
+      <p>
+        <%= render 'recipes/ingredient_fields', :f => builder %>
+      </p>
+      <% end %>
+        <%= link_to_add_fields "Add Ingredient", f, :ingredients %>
+
+      <%= f.fields_for :directions do |builder| %>
+      <p>
+        <%= render 'recipes/direction_fields', :f => builder %>
+      </p>
+      
+      <% end %>
+        <%= link_to_add_fields "Add Direction", f, :directions %>
+
+
+
 
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>

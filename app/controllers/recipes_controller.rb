@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
-    # @recipe.image = params[:file]
+
     if @recipe.save
       flash[:success] = "Recipe created!"
       redirect_to root_url
@@ -17,7 +17,10 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = current_user.recipes.build
+    # @recipe = current_user.recipes.build
+    @recipe = Recipe.new
+    @recipe.ingredients.build
+    @recipe.directions.build
   end
 
   def destroy
@@ -51,6 +54,34 @@ class RecipesController < ApplicationController
 
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients.all
+    @directions = @recipe.directions.all
+    
+    if @recipe.update_attributes(recipe_params) && @recipe.update_attributes(recipe_params)
+      redirect_to @recipe, notice: "Successfully updated recipe."
+    else
+      render :edit
+    end
+  end
+
+
+
+
+
+
+
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_url, notice: "Successfully destroyed recipe."
+  end
 
 
   private
@@ -66,7 +97,9 @@ class RecipesController < ApplicationController
                                       :ingredients,
                                       :directions,
                                       :privacy,
-                                      :image
+                                      :image,
+                                      ingredients_attributes: [:id, :item, :amount, :unit, :alternative],
+                                      directions_attributes: [:id, :content]
                                       )
     end
 
