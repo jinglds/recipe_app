@@ -23,6 +23,18 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
   end
 
+  def destroy
+    @recipe= Recipe.find(params[:recipe_id])
+    @comment = @recipe.comments.find(params[:id])
+    @comment.destroy
+
+# <%= link_to "delete", recipe_comment_path, method: :delete,
+#                                      data: { confirm: "You sure?" },
+#                                      title: comment_item.content %>
+    flash[:success] = "Comment created!"
+       redirect_to @recipe
+  end
+
   private
 
     def comment_params

@@ -14,9 +14,9 @@
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
     <% if @user.recipes.any? %>
-      <h3>Microposts (<%= @user.recipes.count %>)</h3>
+      <h3>My Recipes (<%= @user.recipes.count %>)</h3>
       <ol class="microposts">
-        <%= render 'shared/feed' %>
+        <%= render @recipes %>
       </ol>
       <%= will_paginate @recipes %>
     <% end %>

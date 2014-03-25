@@ -1,7 +1,8 @@
 <% if signed_in? %>
-<ul class="nav nav-pills">
+<ul class="nav nav-tabs">
   <li class="active"><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Recipe Feed", index_path %></li>
+  <li><%= link_to "My Recipe", current_user %></li>
   <li><%= link_to "New Recipe", newrecipe_path %></li>
-  <li><%= link_to "Recipe Index", index_path %></li>
 </ul>
 <% end %>

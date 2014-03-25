@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       flash[:success] = "Recipe created!"
-      redirect_to root_url
+      redirect_to @recipe
     else
       @feed_items = []
       render 'static_pages/home'
@@ -39,20 +39,31 @@ class RecipesController < ApplicationController
   end
 
 
-  def index
-    if params[:search]
-      @recipes = Recipe.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
-    else
-      @recipes = Recipe.search(params[:all]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
-    end
-    # # @appetizers = Recipe.appetizers
-    # # @appetizers = Recipe.filtered_by_course(params[:appetizers])
-    @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 4)
-    @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 4)
-    @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 4)
-    @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 4)
+  # def index
+  #   if params[:search]
+  #     @recipes = Recipe.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
+  #   else
+  #     @recipes = Recipe.search(params[:all]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
+  #   end
+  #   # # @appetizers = Recipe.appetizers
+  #   # # @appetizers = Recipe.filtered_by_course(params[:appetizers])
+  #   @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 4)
+  #   @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 4)
+  #   @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 4)
+  #   @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 4)
 
+  # end
+
+
+  def index
+    if signed_in?
+      @micropost  = current_user.microposts.build
+      @recipe  = current_user.recipes.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+
+    end
   end
+
 
   def edit
     @recipe = Recipe.find(params[:id])
@@ -62,18 +73,15 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.ingredients.all
     @directions = @recipe.directions.all
-    
-    if @recipe.update_attributes(recipe_params) && @recipe.update_attributes(recipe_params)
+
+
+     if @recipe.update_attributes(recipe_params)
       redirect_to @recipe, notice: "Successfully updated recipe."
     else
       render :edit
     end
+    
   end
-
-
-
-
-
 
 
 
@@ -83,6 +91,19 @@ class RecipesController < ApplicationController
     redirect_to recipes_url, notice: "Successfully destroyed recipe."
   end
 
+
+
+  def upvote
+    @recipe = Recipe.find(params[:id])
+    @recipe.liked_by current_user
+    redirect_to @recipe
+  end
+
+  def downvote
+    @recipe = Recipe.find(params[:id])
+    @recipe.downvote_from current_user
+    redirect_to @recipe
+  end
 
   private
 
@@ -98,8 +119,8 @@ class RecipesController < ApplicationController
                                       :directions,
                                       :privacy,
                                       :image,
-                                      ingredients_attributes: [:id, :item, :amount, :unit, :alternative],
-                                      directions_attributes: [:id, :content]
+                                      ingredients_attributes: [:id, :item, :amount, :unit, :alternative, :_destroy],
+                                      directions_attributes: [:id, :content, :_destroy]
                                       )
     end
 

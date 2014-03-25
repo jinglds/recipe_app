@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="thumbnail head-thumb recipe-thumb">
+		<h1>Recipes</h1>
+		<div class="row-fluid">
+			<%= render @recipes %>	
+		</div>
+		<%= will_paginate @recipes %>
+	</div>
+
+	<div class="thumbnail head-thumb app-thumb">
+		<h1>Appetizers</h1><p>
+		
+		<div class="row-fluid">
+			<%= render @appetizers %>	
+		</div>
+		<%= will_paginate @appetizers, param_name: 'a_page' %>
+	</div>
+
+
+	<div class="thumbnail head-thumb main-thumb">
+		<h1>Main Dish</h1><p>
+		<div class="row-fluid">
+			<%= render @mains %>	
+		</div>
+		<%= will_paginate @mains, param_name: 'm_page' %>
+	</div>
+
+	<div class="thumbnail head-thumb des-thumb">
+		<h1>Desserts</h1><p>
+		<div class="row-fluid">
+			<%= render @desserts %>	
+		</div>
+		<%= will_paginate @desserts, param_name: 'd_page' %>
+	</div>
+
+	<div class="thumbnail head-thumb bev-thumb">
+		<h1>Beverages</h1><p>
+		<div class="row-fluid">
+			<%= render @beverages %>	
+		</div>
+		<%= will_paginate @beverages, param_name: 'b_page' %>
+	</div>
+
+</div>

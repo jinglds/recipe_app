@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    'default.jpg'
+    'default.png'
     # "/images/" + [version_name, "default.jpg"].compact.join('_')
   end
 
@@ -37,11 +37,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
     version :thumb do
-     process :resize_to_limit => [200, 200]
+     process :resize_to_fill => [500,80 ]
     end
 
     version :big_thumb do
-     process :resize_to_limit => [500, 500]
+     process :resize_to_fill => [500, 500]
     end
 
   # Add a white list of extensions which are allowed to be uploaded.

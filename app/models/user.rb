@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+  
   has_many :microposts, dependent: :destroy
   has_many :comments
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

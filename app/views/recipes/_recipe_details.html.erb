@@ -21,17 +21,28 @@
           <strong>COURSE:   </strong><%= @recipe.course %><br>
           <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
           <strong>SERVING:  </strong><%= @recipe.serving %><br>
-        
+        <br><h4>INGREDIENTS</h4>
         <ol>
           <% for ingredient in @recipe.ingredients %>
           <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
+          <% end %>
+        </ol>
+
+        <br><h4>DIRECTIONS</h4>
+        <ol>
+          <% for direction in @recipe.directions %>
+          <li><%= h direction.content %> </li>
           <% end %>
         </ol>
             </div>
         </div>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back to Recipe', recipe_path %>
+<%= link_to 'Back to Recipe', recipe_path %> |
+<%= link_to "Upvote", like_recipe_path(@recipe), method: :put %> | 
+<%= link_to "Downvote", dislike_recipe_path(@recipe), method: :put %>
+
+<%= @recipe.votes.up.count %> LIKES
 
 
 <!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>

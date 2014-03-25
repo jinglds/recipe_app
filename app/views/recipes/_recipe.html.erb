@@ -28,6 +28,7 @@
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
         <% end %>
+        <%= pluralize(recipe.votes.up.count, "like") %> 
  
       </div>
     

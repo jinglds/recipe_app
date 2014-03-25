@@ -42,8 +42,8 @@ def make_recipes
     course = ['appetizer', 'main', 'dessert', 'beverage']
     serving = ['1','2','3']
     description = Faker::Lorem.sentence(5)
-    ingredients = Faker::Lorem.words(10).join
-    directions = Faker::Lorem.sentence(6)
+    item = ['meat', 'fish', 'banana', 'apple', 'chocolate']
+    directions = Faker::Lorem.sentence(1)
     privacy = ['public','private','friends-only']
     image = ['default_food.jpg', 'default_food.jpg']
 
@@ -65,8 +65,7 @@ def make_recipes
                                               course: course.sample,
                                               cook_time: cook_time.sample,
                                               serving: serving.sample,
-                                              ingredients: ingredients,
-                                              directions: directions,
+
                                               image: image.sample,
                                               privacy: privacy.sample
                                               

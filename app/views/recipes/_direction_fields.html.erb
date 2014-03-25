@@ -1,5 +1,6 @@
 <fieldset>
 <%= f.label :direction, "Direction" %><br >
-<%= f.text_field :content, placeholder:"E.g. cut apple"  %>
+<%= f.text_field :content, placeholder:"E.g. cut apple"  %>  
+<%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>

@@ -9,6 +9,10 @@ RecipeApp::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :recipes do
     resources :comments, only: [:create, :destroy]
+    member do
+    put "like", to: "recipes#upvote"
+    put "dislike", to: "recipes#downvote"
+  end
 end
   
   root  'static_pages#home'

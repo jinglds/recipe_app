@@ -1,12 +1,15 @@
 class Recipe < ActiveRecord::Base
+  acts_as_votable
+  
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_many :directions, dependent: :destroy
-  accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:item].blank? }
+  accepts_nested_attributes_for :ingredients, :allow_destroy => true, :reject_if => lambda { |a| a[:item].blank? }
   validates_associated :ingredients, presence: true
 
-  accepts_nested_attributes_for :directions, :reject_if => lambda { |a| a[:content].blank? }
+  accepts_nested_attributes_for :directions, :allow_destroy => true, :reject_if => lambda { |a| a[:content].blank? }
   validates_associated :directions, presence: true
 
   default_scope -> { order('created_at DESC') }
@@ -19,6 +22,8 @@ class Recipe < ActiveRecord::Base
   scope :all_mains, where(course: 'main')
   scope :all_desserts, where(course: 'dessert')
   scope :all_beverages, where(course: 'beverage')
+
+
 
 
 

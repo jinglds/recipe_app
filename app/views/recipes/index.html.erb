@@ -1,49 +1,23 @@
-<% provide(:title, "Recipe Index") %>
-<%= render 'shared/search_form' %>
+<% provide(:title, "Recipe Feed") %>
 
-
-<div class="container">
-	<div class="thumbnail">
-		<h1>Recipes</h1>
-		<div class="row-fluid">
-			<%= render @recipes %>	
-		</div>
-		<%= will_paginate @recipes %>
-	</div>
-
-	<div class="thumbnail">
-		<h1>Appetizers</h1>
-		<div class="row-fluid">
-			<%= render @appetizers %>	
-		</div>
-		<%= will_paginate @appetizers, param_name: 'a_page' %>
-	</div>
-
-
-	<div class="thumbnail">
-		<h1>Main Dish</h1>
-		<div class="row-fluid">
-			<%= render @mains %>	
-		</div>
-		<%= will_paginate @mains, param_name: 'm_page' %>
-	</div>
-
-	<div class="thumbnail">
-		<h1>Desserts</h1>
-		<div class="row-fluid">
-			<%= render @desserts %>	
-		</div>
-		<%= will_paginate @desserts, param_name: 'd_page' %>
-	</div>
-
-	<div class="thumbnail">
-		<h1>Beverages</h1>
-		<div class="row-fluid">
-			<%= render @beverages %>	
-		</div>
-		<%= will_paginate @beverages, param_name: 'b_page' %>
-	</div>
-
-</div>
-
-
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+      <section>
+        <ul class="nav nav-pills nav-stacked">
+  <li class="active"><%= link_to "Home", root_path %></li>
+  <li><%= link_to "New Recipe", newrecipe_path %></li>
+  <li><%= link_to "Recipe Index", index_path %></li>
+</ul>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Recipe Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>

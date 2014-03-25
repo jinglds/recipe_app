@@ -4,6 +4,6 @@
 <%= f.text_field :amount, placeholder:"amount"  %>
 <%= f.text_field :unit, placeholder:"unit"  %>
 <%= f.text_field :alternative, placeholder:"alternative"  %>
-
+  <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>

@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 gem 'has_scope'
+gem 'nested_form'
+gem 'acts_as_votable', '~> 0.8.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
