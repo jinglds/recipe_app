@@ -1,8 +1,9 @@
 RecipeApp::Application.routes.draw do
   resources :users do
+    resources :favorites, only: [:index, :create, :destroy]
     member do
       get :following, :followers
-    end
+    end    
   end
   resources :sessions,      only: [:new, :create, :destroy]
   resources :microposts,    only: [:create, :destroy]
@@ -10,9 +11,12 @@ RecipeApp::Application.routes.draw do
   resources :recipes do
     resources :comments, only: [:create, :destroy]
     member do
-    put "like", to: "recipes#upvote"
-    put "dislike", to: "recipes#downvote"
-  end
+      put "like", to: "recipes#upvote"
+      put "dislike", to: "recipes#downvote"
+    end
+    collection do
+      match 'search' => 'recipes#search', via: [:get, :post], as: :search
+    end
 end
   
   root  'static_pages#home'
@@ -25,6 +29,9 @@ end
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+ 
+  match "recipes/:id/feature" => "recipes#feature", via: [:get, :post], :as => "feature_recipe"
+  match "recipes/:id/unfeature" => "recipes#unfeature", via: [:get, :post], :as => "unfeature_recipe"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

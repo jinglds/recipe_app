@@ -14,13 +14,20 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  background-image: url(/assets/food.jpg);
 }
 
 body {
   padding-top: 60px;
+  background: url('wavegrid.png');
 
 }
 
+.body-container{
+  background-color: white;
+  padding: 20px;
+  box-shadow: 8px 8px 20px 5px #CED5D5;
+}
 textarea {
   resize: vertical;
 }
@@ -79,6 +86,9 @@ p {
 }
 
 /* footer */
+.footer-container{
+  /*background-color: #eb5158;*/
+}
 
 footer {
   margin-top: 45px;
@@ -344,10 +354,135 @@ aside {
     height: 350px; 
     box-shadow: none;
     padding-bottom: 20px;
+    
  }
 
 
- .head-thumb{
-  padding-top: 30px;
-  padding-bottom: 180px;
- }
+.content-block{
+  /*border-style:solid;*/
+  /*border-width:5px;*/
+  padding: 5px;
+  border-radius:15px;
+
+}
+.recipe{
+  background-color: #FFB687;
+    /*border-color: #F7893E;*/
+  }
+
+.appetizer{
+  /*border-color: #6ED865;*/
+  background-color: #CAF2AC;
+}
+
+.maind{
+  /*border-color: #D99C66;*/
+  background-color: #E0C199;
+}
+
+.dessert{
+  /*border-color: #F788D2;*/
+  background-color: #FFD9F0;
+}
+
+.beverage{
+  /*border-color: #9C8AE3;*/
+  background-color: #BDD1FF;
+}
+
+.recipe-title{
+  background-color: #F7893E;
+}
+
+.app-title{
+  background-color: #6ED865;
+}
+
+.maind-title{
+  background-color: #D99C66;
+}
+
+.des-title{
+  background-color: #F788D2;
+}
+
+.bev-title{
+  background-color: #9C8AE3;
+}
+
+.search-title{
+
+  background-color: #FF6672;
+}
+.head-block{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  border-radius:15px;
+}
+
+.head-subtitle{
+  color: #F7FFFC;
+  text-align: left;
+}
+
+.section-container{
+  padding: 10px;
+}
+
+
+
+/* ---------- TAB ---------- */
+
+.nav-tabs {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  border: none;
+}
+
+.nav-tabs >ul{
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.nav-tabs > .active>li > a{
+  background-color: transparent;
+  border: none;
+  color: #555555;
+  cursor: default;
+   &:hover{
+    background-color:transparent;
+    border:transparent;
+    border-bottom: 4px solid #FFA403;
+
+  }
+}
+.nav-tabs > li > a {
+font-size:x-large;
+font-weight:bold;
+size: 1em;
+padding-top: 6px;
+padding-bottom: 10px;
+line-height: 20px;
+border: 1px solid transparent;
+color: #484B48;
+  &:hover{
+    background-color:transparent;
+    border:transparent;
+    border-bottom: 4px solid #FFA403;
+  }
+}
+
+.nav-tabs > .active > a {
+  background-color: transparent;
+  border: none;
+  color: #FFA403;
+  cursor: default;
+  border-bottom: 4px solid #FFA403;
+  &:hover{
+    background-color:transparent;
+    border:transparent;
+    color: #FFA403;
+    border-bottom: 4px solid #FFA403;
+  }
+}

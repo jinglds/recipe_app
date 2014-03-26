@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 8009ae93e3e00325e41edd231b4b917c45a2c6c2
+  branch: rails-4
+  specs:
+    ransack (1.1.0)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+      polyamorous (~> 0.6.0)
+
+GIT
   remote: git://github.com/bmabey/database_cleaner.git
   revision: 35bd646903fc56af185a9fa9e360c568bb56756e
   specs:
@@ -105,6 +117,8 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     pg (0.15.1)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -206,6 +220,7 @@ DEPENDENCIES
   pg (= 0.15.1)
   rails (= 4.0.3)
   rails_12factor (= 0.0.2)
+  ransack!
   rmagick
   rspec-rails (= 2.13.1)
   sass-rails (= 4.0.1)

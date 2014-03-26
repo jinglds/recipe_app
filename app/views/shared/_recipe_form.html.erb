@@ -1,46 +1,81 @@
+
 <%= form_for @recipe, :html => {:multipart => true} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-	  <%= f.label :name %>
-      <%= f.text_field :name, placeholder:"Your Recipe Name" %>
-      <%= f.label :description %>
-      <%= f.text_field :description, placeholder:"E.g. A recipe good for family dinner!" %>
-      <%= f.label :level %>
-      <%= f.collection_select :level, FormOptions::LEVELS,:to_s, :to_s, :include_blank => true %>
-      <%= f.label :course %>
-      <%= f.collection_select :course, FormOptions::COURSES,:to_s, :to_s, :include_blank => true %>
-      <%= f.label :cook_time %>
-      <%= f.text_field :cook_time, placeholder:"E.g. 20" %>
-      <%= f.label :serving %>
-      <%= f.text_field :serving, placeholder:"2 persons" %>
+    <div class="head-block search-title"><h3 class="head-subtitle">RECIPE DETAILS</h3></div>
+
+    <table>
+      <div class ="section-container">
+      <tr>
+        <td><%= f.label :name %></td>
+        <td><%= f.text_field :name, placeholder:"Your Recipe Name" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :description %></td>
+        <td><%= f.text_field :description, placeholder:"E.g. A recipe good for family dinner!" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :level %></td>
+        <td><%= f.collection_select :level, FormOptions::LEVELS,:to_s, :to_s, :include_blank => true %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :course %>
+        <td><%= f.collection_select :course, FormOptions::COURSES,:to_s, :to_s, :include_blank => true %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :cook_time %></td>
+        <td><%= f.text_field :cook_time, placeholder:"E.g. 20" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :serving %></td>
+        <td><%= f.text_field :serving, placeholder:"2 persons" %></td>
+      <tr>
+        <td><%= f.label :privacy %></td>
+        <td><%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :image %></td>
+        <td><%= f.file_field :image %> <td>
+      </tr>
+        </div>
+    </table>
+    <p>
 
 
 
-      <%= f.label :privacy %>
-      <%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %>
-      <%= f.file_field :image %>
 
-
-      <%= f.fields_for :ingredients do |builder| %>
+    <div class="head-block search-title"><h3 class="head-subtitle">INGREDIENTS</h3></div>
+      <table>
+        <div class ="section-container">
+          <table class="row-fluid">
+            <tr>
+              <td>ITEM</td>
+              <td>AMOUNT</td>
+              <td>UNIT</td>
+              <td>ALTERNATIVE</td>
+            </tr>
+          </table>
+          <%= f.fields_for :ingredients do |builder| %>
+          <%= render 'recipes/ingredient_fields', :f => builder %>
+          <% end %>
+          <%= link_to_add_fields "Add Ingredient", f, :ingredients %>
+        </div>
+      </table>
       <p>
-        <%= render 'recipes/ingredient_fields', :f => builder %>
-      </p>
-      <% end %>
-        <%= link_to_add_fields "Add Ingredient", f, :ingredients %>
 
+<div class="head-block search-title"><h3 class="head-subtitle">DIRECTIONS</h3></div>
+  <table>
+    <div class ="section-container">
       <%= f.fields_for :directions do |builder| %>
-      <p>
-        <%= render 'recipes/direction_fields', :f => builder %>
-      </p>
-      
+          <%= render 'recipes/direction_fields', :f => builder %>
       <% end %>
-        <%= link_to_add_fields "Add Direction", f, :directions %>
-
-
-
-
+      <%= link_to_add_fields "Add Direction", f, :directions %>
+    </div>
+  </table>
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+  </div>
   <% end %>
 
 

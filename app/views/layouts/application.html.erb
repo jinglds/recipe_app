@@ -13,10 +13,13 @@
     
     <div class="container">
       <%= render 'layouts/menubar'%>
+      <br>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <%= yield %>
+      <div class="body-container">
+        <%= yield %>
+      </div>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>

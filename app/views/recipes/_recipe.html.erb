@@ -29,7 +29,13 @@
                                      title: recipe.name %>
         <% end %>
         <%= pluralize(recipe.votes.up.count, "like") %> 
- 
+        <% if current_user.try(:admin?)%>
+          <% if recipe.featured? %>
+            <%= link_to 'Unfeature', unfeature_recipe_path(recipe) %> 
+          <% else %>
+            <%= link_to 'Feature', feature_recipe_path(recipe) %> 
+          <% end %>
+        <% end %>
       </div>
     
   </div>

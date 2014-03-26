@@ -1,4 +1,77 @@
-<%= form_tag(recipes_path, :method => "get", id: "search-form", class: "form-search form-inline") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-<%= submit_tag "Search", class: "btn class form-inline" %>
+<!-- <div class="container ">
+	<div class="input-group input-append span10">
+		
+		<%= form_tag(recipes_path, :method => "get", id: "search-form", class: "form-search form-control") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+		<%= submit_tag "Search", class: "btn form-inline btn-default" %>
+		
+		<% end %>
+	
+
+	</div>
+</div> --> 
+<!-- <table>
+  <tr>
+    <div class="input-group input-append ">
+      <%= search_form_for @q, url: search_recipes_path,
+                              html: { method: :post } do |f| %>
+        <td>
+          <div class="field">
+            <%= f.label :name_cont, "Name contains" %>
+            <%= f.text_field :name_cont %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :cook_time_lteq, "Cooking Time less than" %>
+            <%= f.text_field :cook_time_lteq %>   
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :ingredients_item_cont %>
+            <%= f.text_field :ingredients_item_cont %>
+          </div>
+        </td>
+
+        <td>
+          <%= f.submit "search" %>
+        </td>
+      <% end %>
+    </div>
+
+    <td>
+      <th><%= sort_link(@q, :name, "Recipe Name") %></th>
+      <th><%= sort_link(@q, :cook_time, "Cook Time") %></th>
+      <th><%= sort_link(@q, :level, "Level") %></th>
+    </td>
+  </tr>
+</table> -->
+
+<container class="row-fluid">
+<%= search_form_for @q, class: "form-inline", url: search_recipes_path,
+                        html: { method: :post } do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :cook_time_lteq, "Cooking Time less than" %>
+    <%= f.text_field :cook_time_lteq %>   
+  </div>
+
+  <%= f.label :ingredients_item_cont %>
+  <%= f.text_field :ingredients_item_cont %>
+
+
+
+  <%= f.submit "search" %>
 <% end %>
+
+<tr>
+  <th><%= sort_link(@q, :name, "Recipe Name") %></th>
+  <th><%= sort_link(@q, :cook_time, "Cook Time") %></th>
+  <th><%= sort_link(@q, :level, "Level") %></th>
+</tr>
+
+</container>

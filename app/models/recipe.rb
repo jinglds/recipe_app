@@ -45,13 +45,13 @@ class Recipe < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      all
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     where('name LIKE ?', "%#{search}%")
+  #   else
+  #     all
+  #   end
+  # end
 
 #   def self.filtered_by_course(filter)
 #     find(:all,

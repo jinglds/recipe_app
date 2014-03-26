@@ -1,44 +1,65 @@
 <div class="container">
-	<div class="thumbnail head-thumb recipe-thumb">
-		<h1>Recipes</h1>
-		<div class="row-fluid">
-			<%= render @recipes %>	
+	<div class="content-block recipe">
+		<div class="recipe-title head-block">
+			<h1 class="head-subtitle">All Recipes</h1>
 		</div>
-		<%= will_paginate @recipes %>
+		<br>
+			<div class="row-fluid">
+				<%= render @recipes %>	
+			</div>
+			<%= will_paginate @recipes %>
+	</div>
+	
+	<br>
+
+	<div class="content-block appetizer">
+		<div class="app-title head-block">
+			<h1 class="head-subtitle">Appetizers</h1>
+		</div>
+		<br>	
+			<div class="row-fluid">
+				<%= render @appetizers %>	
+			</div>
+			<%= will_paginate @appetizers, param_name: 'a_page' %>
 	</div>
 
-	<div class="thumbnail head-thumb app-thumb">
-		<h1>Appetizers</h1><p>
-		
-		<div class="row-fluid">
-			<%= render @appetizers %>	
+	<br>
+
+	<div class="content-block maind">
+		<div class="maind-title head-block">
+			<h1 class="head-subtitle">Main Dish</h1>
 		</div>
-		<%= will_paginate @appetizers, param_name: 'a_page' %>
+		<br>
+			<div class="row-fluid">
+				<%= render @mains %>	
+			</div>
+			<%= will_paginate @mains, param_name: 'm_page' %>
 	</div>
+	
+	<br>
 
-
-	<div class="thumbnail head-thumb main-thumb">
-		<h1>Main Dish</h1><p>
-		<div class="row-fluid">
-			<%= render @mains %>	
+	<div class="content-block dessert">
+		<div class="des-title head-block">
+			<h1 class="head-subtitle">Desserts</h1>
 		</div>
-		<%= will_paginate @mains, param_name: 'm_page' %>
+		<br>
+			<div class="row-fluid">
+				<%= render @desserts %>	
+			</div>
+			<%= will_paginate @desserts, param_name: 'd_page' %>
 	</div>
+	
+	<br>
 
-	<div class="thumbnail head-thumb des-thumb">
-		<h1>Desserts</h1><p>
-		<div class="row-fluid">
-			<%= render @desserts %>	
+	<div class="content-block beverage">
+		<div class="bev-title head-block">
+			<h1 class="head-subtitle">Beverages</h1>
 		</div>
-		<%= will_paginate @desserts, param_name: 'd_page' %>
-	</div>
-
-	<div class="thumbnail head-thumb bev-thumb">
-		<h1>Beverages</h1><p>
-		<div class="row-fluid">
-			<%= render @beverages %>	
-		</div>
-		<%= will_paginate @beverages, param_name: 'b_page' %>
+		<br>
+			<div class="row-fluid">
+				<%= render @beverages %>	
+			</div>
+			<%= will_paginate @beverages, param_name: 'b_page' %>
 	</div>
 
 </div>
