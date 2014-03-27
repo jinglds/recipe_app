@@ -59,11 +59,19 @@
     <%= f.label :cook_time_lteq, "Cooking Time less than" %>
     <%= f.text_field :cook_time_lteq %>   
   </div>
-
+<div class="field">
   <%= f.label :ingredients_item_cont %>
   <%= f.text_field :ingredients_item_cont %>
 
+</div>
 
+<div class="field">
+<%= f.select :course_eq, options_from_collection_for_select(Recipe.unique_by_course, :course, :course), include_blank: true %>
+</div>
+
+<div class="field">
+<%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true %>
+</div>
 
   <%= f.submit "search" %>
 <% end %>

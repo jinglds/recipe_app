@@ -20,6 +20,7 @@ RecipeApp::Application.routes.draw do
 end
   
   root  'static_pages#home'
+  match '/feed_index', to: 'recipes#feed_index',          via: 'get'
   match '/index', to: 'recipes#index',          via: 'get'
   match '/newrecipe',  to: 'recipes#new',       via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
@@ -29,7 +30,8 @@ end
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
- 
+
+
   match "recipes/:id/feature" => "recipes#feature", via: [:get, :post], :as => "feature_recipe"
   match "recipes/:id/unfeature" => "recipes#unfeature", via: [:get, :post], :as => "unfeature_recipe"
   # The priority is based upon order of creation: first created -> highest priority.

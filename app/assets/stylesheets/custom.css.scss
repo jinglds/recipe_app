@@ -25,7 +25,10 @@ body {
 
 .body-container{
   background-color: white;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
   box-shadow: 8px 8px 20px 5px #CED5D5;
 }
 textarea {
@@ -298,6 +301,60 @@ aside {
 
 
 
+/* ---------- TAB ---------- */
+
+.nav-tabs {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  border: none;
+}
+
+.nav-tabs >ul{
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.nav-tabs > .active>li > a{
+  background-color: transparent;
+  border: none;
+  color: #555555;
+  cursor: default;
+   &:hover{
+    background-color:transparent;
+    border:transparent;
+    border-bottom: 4px solid #FFA403;
+
+  }
+}
+.nav-tabs > li > a {
+font-size:x-large;
+font-weight:bold;
+size: 1em;
+padding-top: 6px;
+padding-bottom: 10px;
+line-height: 20px;
+border: 1px solid transparent;
+color: #484B48;
+  &:hover{
+    background-color:transparent;
+    border:transparent;
+    border-bottom: 4px solid #FFA403;
+  }
+}
+
+.nav-tabs > .active > a {
+  background-color: transparent;
+  border: none;
+  color: #FFA403;
+  cursor: default;
+  border-bottom: 4px solid #FFA403;
+  &:hover{
+    background-color:transparent;
+    border:transparent;
+    color: #FFA403;
+    border-bottom: 4px solid #FFA403;
+  }
+}
 
 /*HERO UNIT*/
 .hero-unit {
@@ -365,30 +422,30 @@ aside {
   border-radius:15px;
 
 }
-.recipe{
+/*.recipe{
   background-color: #FFB687;
-    /*border-color: #F7893E;*/
+    border-color: #F7893E;
   }
 
 .appetizer{
-  /*border-color: #6ED865;*/
+  border-color: #6ED865;
   background-color: #CAF2AC;
 }
 
 .maind{
-  /*border-color: #D99C66;*/
+  border-color: #D99C66;
   background-color: #E0C199;
 }
 
 .dessert{
-  /*border-color: #F788D2;*/
+  border-color: #F788D2;
   background-color: #FFD9F0;
 }
 
 .beverage{
-  /*border-color: #9C8AE3;*/
+  border-color: #9C8AE3;
   background-color: #BDD1FF;
-}
+}*/
 
 .recipe-title{
   background-color: #F7893E;
@@ -418,7 +475,7 @@ aside {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 30px;
-  border-radius:15px;
+  /*border-radius:15px;*/
 }
 
 .head-subtitle{
@@ -430,59 +487,38 @@ aside {
   padding: 10px;
 }
 
+.lastest-feed-title{
 
-
-/* ---------- TAB ---------- */
-
-.nav-tabs {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  border: none;
+  background-image: url(/assets/darkdenim3.png);
 }
 
-.nav-tabs >ul{
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+
+
+.home-heading{
+  font-size:x-large;
+  font-weight:bold;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  border: 1px solid transparent;
+  color: white;
+  /*background-color: #484B48;*/
+
 }
 
-.nav-tabs > .active>li > a{
-  background-color: transparent;
-  border: none;
-  color: #555555;
-  cursor: default;
-   &:hover{
-    background-color:transparent;
-    border:transparent;
-    border-bottom: 4px solid #FFA403;
+.menu-block{
+  background-color: #FF9198;
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 5px;
+   border-radius:2px;
 
-  }
-}
-.nav-tabs > li > a {
-font-size:x-large;
-font-weight:bold;
-size: 1em;
-padding-top: 6px;
-padding-bottom: 10px;
-line-height: 20px;
-border: 1px solid transparent;
-color: #484B48;
-  &:hover{
-    background-color:transparent;
-    border:transparent;
-    border-bottom: 4px solid #FFA403;
-  }
 }
 
-.nav-tabs > .active > a {
-  background-color: transparent;
-  border: none;
-  color: #FFA403;
-  cursor: default;
-  border-bottom: 4px solid #FFA403;
-  &:hover{
-    background-color:transparent;
-    border:transparent;
-    color: #FFA403;
-    border-bottom: 4px solid #FFA403;
-  }
+.recipe-feed-item{
+  box-shadow: 1px 1px 4px 1px #CED5D5;
+  padding: 6px;
+  background-color: #F8F8F8 ;
 }

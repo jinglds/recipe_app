@@ -1,10 +1,17 @@
 <% if signed_in? %>
 
-
-<%= render 'shared/search_form' %>
-<%= render 'recipes/lastest_feed' %>
-<%= render 'recipes/recipe_index' %>
-
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'shared/menu_block' %>
+  </div>
+  <div class="span8 offset1">
+    <%= render 'recipes/lastest_feed' %>
+  </div>
+</div>
+<div class="row-fluid">
+    <%= render 'recipes/recipe_index' %>
+  
+</div>
 <% else %>
   <div class="center hero-unit">
     <h1>Hello, fellow food-lover!</h1>
@@ -17,5 +24,10 @@
                                 class: "btn btn-warning  btn-large" %>
 
   </div>
-  <%= render 'recipes/recipe_index' %>
+
+  <div id="recipe-feed-block">
+    <h3>LASTEST FEED</h3>
+  	<%= render 'recipes/recipe_index' %>
+	</div>
 <% end %>
+

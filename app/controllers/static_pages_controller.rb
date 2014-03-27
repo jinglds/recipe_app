@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
     @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 4)
 
 
-      @feed_items = current_user.feed.paginate(page: params[:f_page], per_page: 4)
+    @feed_items = current_user.feed.paginate(page: params[:f_page], per_page: 3)
 
 
 

@@ -22,7 +22,8 @@ class Recipe < ActiveRecord::Base
   scope :all_mains, where(course: 'main')
   scope :all_desserts, where(course: 'dessert')
   scope :all_beverages, where(course: 'beverage')
-
+  scope :unique_by_course, lambda { select('DISTINCT(course)') }
+  scope :unique_by_level, lambda { select('DISTINCT(level)' ) }
 
 
 

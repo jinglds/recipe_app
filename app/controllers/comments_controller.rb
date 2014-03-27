@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+
 
   def create
 
@@ -28,10 +28,9 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.find(params[:id])
     @comment.destroy
 
-# <%= link_to "delete", recipe_comment_path, method: :delete,
-#                                      data: { confirm: "You sure?" },
-#                                      title: comment_item.content %>
-    flash[:success] = "Comment created!"
+
+
+    flash[:success] = "Comment deleted!"
        redirect_to @recipe
   end
 

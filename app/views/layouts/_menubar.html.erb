@@ -1,7 +1,7 @@
 <% if signed_in? %>
 <ul class="nav nav-tabs">
   <li class="<%= 'active' if current_page?(root_path) %>"> <%= link_to "Home", root_path %></li>
-  <li class="<%= 'active' if current_page?(index_path) %>"> <%= link_to "Recipe Feed", index_path %></li>
+  <li class="<%= 'active' if current_page?(feed_index_path) %>"> <%= link_to "Recipe Feed", feed_index_path %></li>
   <li class="<%= 'active' if current_page?(current_user) %>"> <%= link_to "My Recipe", current_user %></li>
   <li class="<%= 'active' if current_page?(newrecipe_path) %>"> <%= link_to "New Recipe", newrecipe_path %></li>
 
