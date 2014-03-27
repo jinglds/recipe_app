@@ -31,6 +31,7 @@ end
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
+  get 'tags/:tag', to: 'recipes#index', as: :tag
 
   match "recipes/:id/feature" => "recipes#feature", via: [:get, :post], :as => "feature_recipe"
   match "recipes/:id/unfeature" => "recipes#unfeature", via: [:get, :post], :as => "unfeature_recipe"

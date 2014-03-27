@@ -48,6 +48,9 @@ class RecipesController < ApplicationController
     
     @recipes = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 4)
     
+    if params[:tag]
+    @recipes = @recipes.tagged_with(params[:tag])
+    end
     @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 4)
     @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 4)
     @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 4)
@@ -155,6 +158,7 @@ class RecipesController < ApplicationController
                                       :directions,
                                       :privacy,
                                       :image,
+                                      :tag_list,
                                       ingredients_attributes: [:id, :item, :amount, :unit, :alternative, :_destroy],
                                       directions_attributes: [:id, :content, :_destroy]
                                       )

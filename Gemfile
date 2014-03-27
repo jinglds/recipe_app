@@ -16,6 +16,7 @@ gem 'nested_form'
 gem 'acts_as_votable', '~> 0.8.0'
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem 'jquery-slimscroll-rails'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

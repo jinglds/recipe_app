@@ -15,6 +15,10 @@
         <td><%= f.text_field :description, placeholder:"E.g. A recipe good for family dinner!" %></td>
       </tr>
       <tr>
+        <td><%= f.label :tag_list, "Tags (separated by commas)" %></td>
+        <td><%= f.text_field :tag_list %></td>
+      </tr>
+      <tr>
         <td><%= f.label :level %></td>
         <td><%= f.collection_select :level, FormOptions::LEVELS,:to_s, :to_s, :include_blank => true %></td>
       </tr>
@@ -76,6 +80,6 @@
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
   </div>
-  <% end %>
+<% end %>
 
 

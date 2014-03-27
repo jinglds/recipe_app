@@ -73,6 +73,13 @@
 <%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true %>
 </div>
 
+<div id="tag_cloud">
+  <% tag_cloud Recipe.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
   <%= f.submit "search" %>
 <% end %>
 

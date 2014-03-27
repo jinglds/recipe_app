@@ -1,22 +1,21 @@
 <div class="media">
-    <a href="#" class="pull-left">
-
-      <%= image_tag @recipe.image_url(:thumb).to_s %>
-    </a>
-    <div class="media-body">
-      <h3 class="media-heading"><%= link_to @recipe.name, @recipe %>
-         <small>
-          <i>
-            <span class="user">
-              by <%= link_to @recipe.user.name, @recipe.user %>
-            </span>
-            <span class="timestamp">
-              Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
-            </span>
-          </i>
-        </small>
-      </h3>
-            <i><%= @recipe.description %></i><br>
+  <a href="#" class="pull-left">
+    <%= image_tag @recipe.image_url(:thumb).to_s %>
+  </a>
+  <div class="media-body">
+    <h3 class="media-heading"><%= link_to @recipe.name, @recipe %>
+      <small>
+        <i>
+          <span class="user">
+            by <%= link_to @recipe.user.name, @recipe.user %>
+          </span>
+          <span class="timestamp">
+            Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
+          </span>
+        </i>
+      </small>
+    </h3>
+    <i><%= @recipe.description %></i><br>
           <strong>LEVEL:    </strong><%= @recipe.level %><br>
           <strong>COURSE:   </strong><%= @recipe.course %><br>
           <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
@@ -34,8 +33,10 @@
           <li><%= h direction.content %> </li>
           <% end %>
         </ol>
-            </div>
-        </div>
+
+
+        <br><h4>TAG</h4>
+        <p>Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back to Recipe', recipe_path %> |
