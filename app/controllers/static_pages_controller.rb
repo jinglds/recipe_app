@@ -16,12 +16,13 @@ class StaticPagesController < ApplicationController
     @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 4)
     @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 4)
     @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 4)
+    @featured_recipes = Recipe.featured_recipes.order("created_at DESC")
 
+    if signed_in?
+      @feed_items = current_user.feed.paginate(page: params[:f_page], per_page: 3)
 
-    @feed_items = current_user.feed.paginate(page: params[:f_page], per_page: 3)
-
-
-
+      
+    end
   end
   
   def help

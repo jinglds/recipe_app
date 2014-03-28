@@ -1,10 +1,10 @@
 <div class="media recipe-feed-item">
-    <a href="#" class="pull-left">
+    <div class="pull-left span4">
 
-      <%= image_tag feed_item.image_url(:thumb).to_s %>
-    </a>
-    <div class="media-body">
-      <h3 class="media-heading"><%= link_to feed_item.name, feed_item %>
+      <%= link_to image_tag(feed_item.image_url(:thumb).to_s), feed_item %>
+    </div>
+    <div class="media-body ">
+      <span class="recipe-name-thumb"><%= link_to feed_item.name, feed_item %></span><br>
          <small>
           <i>
             <span class="user">
@@ -15,12 +15,12 @@
             </span>
           </i>
         </small>
-      </h3>
             <i><%= feed_item.description %></i><br>
-          <strong>LEVEL:    </strong><%= feed_item.level %><br>
-          <strong>COURSE:   </strong><%= feed_item.course %><br>
-          <strong>COOKTIME: </strong><%= feed_item.cook_time %><br>
-          <strong>SERVING:  </strong><%= feed_item.serving %><br>
+          <i class="icon-asterisk"></i> <%= feed_item.level %><br>
+          <i class="icon-glass"></i> <%= feed_item.course %><br>
+          <i class="icon-time"></i> <%= feed_item.cook_time %> minutes<br>
+          <i class="icon-user"></i> <%= pluralize(feed_item.serving, "person") %>  <br>  
+            
         
     </div>
 </div>

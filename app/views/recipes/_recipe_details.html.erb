@@ -1,25 +1,57 @@
-<div class="media">
-  <a href="#" class="pull-left">
-    <%= image_tag @recipe.image_url(:thumb).to_s %>
-  </a>
-  <div class="media-body">
-    <h3 class="media-heading"><%= link_to @recipe.name, @recipe %>
-      <small>
-        <i>
-          <span class="user">
-            by <%= link_to @recipe.user.name, @recipe.user %>
-          </span>
-          <span class="timestamp">
-            Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
-          </span>
-        </i>
-      </small>
-    </h3>
-    <i><%= @recipe.description %></i><br>
-          <strong>LEVEL:    </strong><%= @recipe.level %><br>
-          <strong>COURSE:   </strong><%= @recipe.course %><br>
-          <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
-          <strong>SERVING:  </strong><%= @recipe.serving %><br>
+<div class="container">
+<div class="row-fluid">
+  <div class="span heading-block">
+    <span class="recipe-name-title heading-title">
+      <%= link_to @recipe.name, @recipe %>
+    </span>
+    
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span recipe-detail">    
+    <small>
+      <i>
+        <span class="user">
+          by <%= link_to @recipe.user.name, @recipe.user %>
+        </span>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
+        </span>
+      </i>
+    </small>
+  </div>
+</div>
+
+
+
+
+<div class="row-fluid">
+  <div class="pull-left span6 ">
+    <%= image_tag @recipe.image_url(:fit_pad).to_s, class: "img-polaroid recipe-image-detail" %>
+  </div>
+  <div class="span5">
+    <strong>LEVEL:    </strong><%= @recipe.level %><br>
+    <strong>COURSE:   </strong><%= @recipe.course %><br>
+    <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
+    <strong>SERVING:  </strong><%= @recipe.serving %><br>
+  </div>
+</div>
+
+
+
+<div class="row-fluid">
+  <span class="heading-title">
+    Ingredients
+  </span>
+  <p>
+  <ul>
+    <% for ingredient in @recipe.ingredients %>
+    <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
+    <% end %>
+  </ul>
+</div>
+
         <br><h4>INGREDIENTS</h4>
         <ol>
           <% for ingredient in @recipe.ingredients %>
@@ -45,7 +77,7 @@
 
 <%= @recipe.votes.up.count %> LIKES
 
-
+</div>
 <!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
 <strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>
  -->

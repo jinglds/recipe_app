@@ -12,6 +12,7 @@ $grayMediumLight: #eaeaea;
 
 /* universal */
 
+
 html {
   overflow-y: scroll;
   background-image: url(/assets/food.jpg);
@@ -27,8 +28,8 @@ body {
   background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
   box-shadow: 8px 8px 20px 5px #CED5D5;
 }
 textarea {
@@ -257,7 +258,7 @@ aside {
 
 
 
-/*nav bar */
+/*----------nav bar--------------- */
 
 .navbar-inverse .navbar-inner {
   background-color: #eb5158;
@@ -356,7 +357,7 @@ color: #484B48;
   }
 }
 
-/*HERO UNIT*/
+/* ---------HERO UNIT---------*/
 .hero-unit {
   background-color: #FDDFBF;
 }
@@ -365,7 +366,176 @@ color: #484B48;
     color: #754949;
 }
 
-.recipe-thumb {
+
+
+
+
+
+
+/*.recipe{
+  background-color: #FFB687;
+    border-color: #F7893E;
+  }
+
+.appetizer{
+  border-color: #6ED865;
+  background-color: #CAF2AC;
+}
+
+.maind{
+  border-color: #D99C66;
+  background-color: #E0C199;
+}
+
+.dessert{
+  border-color: #F788D2;
+  background-color: #FFD9F0;
+}
+
+.beverage{
+  border-color: #9C8AE3;
+  background-color: #BDD1FF;
+}*/
+
+
+
+
+
+.head-subtitle{
+  color: #F7FFFC;
+  text-align: left;
+}
+
+
+.lastest-feed-title{
+
+  background-image: url(/assets/darkdenim3.png);
+}
+
+
+
+
+
+
+
+.recipe-feed-item{
+  box-shadow: 1px 1px 4px 1px #CED5D5;
+  padding: 6px;
+  background-color: #F8F8F8 ;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+
+
+/* ---------HOME---------*/
+
+.heading-title{
+  font-size:x-large;
+  font-weight:bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  /*background-color: #484B48;*/
+}
+
+.heading-block{
+
+}
+
+.section-block{
+  padding-top: 6px;
+  padding-bottom: 10px;
+  /*padding-left: 15px;*/
+/*  padding-right: 15px;
+  /*border-radius:15px;*/
+}
+
+.search-title{
+
+  background-color: #FF6672;
+}
+
+
+.search-block{
+  background-color: #FF9198;
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 5px;
+   border-radius:2px;
+
+}
+.featured-carousel{
+  background-color: black;
+  height: 450px;
+  width: 700px;
+}
+
+.v-center{
+  vertical-align: text-top;
+}
+
+/*------- recipe color ------ */
+.recipe-title{
+  background-color: #F7893E;
+}
+
+.app-title{
+  background-color: #6ED865;
+}
+
+.maind-title{
+  background-color: #D99C66;
+}
+
+.des-title{
+  background-color: #F788D2;
+}
+
+.bev-title{
+  background-color: #9C8AE3;
+}
+
+/*------- recipe detail -----*/
+.recipe-name-title > a {
+  font-size:200%;
+  font-weight:bold;
+  padding-top: 6px;
+  padding-left: 10px;
+  line-height: 20px;
+  color: white;
+
+    &:hover{
+    color: #eb5158;
+  }
+}
+
+.recipe-detail{
+  padding-left: 15px;
+  padding-bottom: 3px;
+}
+
+.recipe-image-detail{
+  max-height: 600px;
+  max-width: 600px;
+}
+
+
+
+
+/* ---------recipe thumb---------*/
+
+
+.all-recipe-thumb {
   height: 300px;
   border:2px dotted #794FA8;
   background-color: #F5F5FF;
@@ -407,126 +577,37 @@ color: #484B48;
   padding-bottom: 20px; }
 
 
-.thumbnail {
-    height: 350px; 
-    box-shadow: none;
-    padding-bottom: 20px;
-    
- }
 
 
-.content-block{
-  /*border-style:solid;*/
-  /*border-width:5px;*/
-  padding: 5px;
-  border-radius:15px;
-
-}
-/*.recipe{
-  background-color: #FFB687;
-    border-color: #F7893E;
-  }
-
-.appetizer{
-  border-color: #6ED865;
-  background-color: #CAF2AC;
-}
-
-.maind{
-  border-color: #D99C66;
-  background-color: #E0C199;
-}
-
-.dessert{
-  border-color: #F788D2;
-  background-color: #FFD9F0;
-}
-
-.beverage{
-  border-color: #9C8AE3;
-  background-color: #BDD1FF;
-}*/
-
-.recipe-title{
-  background-color: #F7893E;
-}
-
-.app-title{
-  background-color: #6ED865;
-}
-
-.maind-title{
-  background-color: #D99C66;
-}
-
-.des-title{
-  background-color: #F788D2;
-}
-
-.bev-title{
-  background-color: #9C8AE3;
-}
-
-.search-title{
-
-  background-color: #FF6672;
-}
-.head-block{
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 30px;
-  /*border-radius:15px;*/
-}
-
-.head-subtitle{
-  color: #F7FFFC;
-  text-align: left;
-}
-
-.section-container{
-  padding: 10px;
-}
-
-.lastest-feed-title{
-
-  background-image: url(/assets/darkdenim3.png);
-}
-
-
-
-.home-heading{
-  font-size:x-large;
+.recipe-name-thumb > a{
+  font-size:large;
   font-weight:bold;
-  padding-top: 6px;
+  line-height: 10px;
+  color: #282828 ;
+
+    &:hover{
+    color: #eb5158;
+  }
+}
+
+.recipe-thumb {
+  border-radius: 5px;
+  height: 350px; 
+  padding-bottom: 20px;
+  box-shadow: 1px 1px 3px 1px #CED5D5;
+  border: 2px dotted #C2A366;
+  &:hover{
+    box-shadow: 2px 2px 3px 1px   #C2A366;
+    border: 2px solid #FFFFFA;
+    background-color:   #FFFAF5;
+  }
+}
+
+.recipe-image-thumb{
+}
+/*.container{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
-  line-height: 20px;
-  border: 1px solid transparent;
-  color: white;
-  /*background-color: #484B48;*/
-
-}
-
-.menu-block{
-  background-color: #FF9198;
-  padding-top: 5px;
-  padding-left: 3px;
-  padding-right: 3px;
-  padding-bottom: 5px;
-   border-radius:2px;
-
-}
-
-.recipe-feed-item{
-  box-shadow: 1px 1px 4px 1px #CED5D5;
-  padding: 6px;
-  background-color: #F8F8F8 ;
-}
-
-#tag_cloud {
-  width: 400px;
-  line-height: 1.6em;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
-}
+}*/

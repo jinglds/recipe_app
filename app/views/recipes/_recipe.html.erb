@@ -1,39 +1,40 @@
-
-
 <div class="span3">  
-  <div class="thumbnail">
-    
-      <%= image_tag recipe.image_url(:thumb).to_s %>
-
-      <%= @recipe_image %>
+  <div class="thumbnail recipe-thumb ">
+    <div class="recipe-image-thumb">
+      <%= link_to image_tag(recipe.image_url(:thumb).to_s), recipe %>
+    </div>
       <div class="caption">
-
-        <h3><%= link_to recipe.name, recipe %></h3>
+        <span class="recipe-name-thumb">
+          <%= link_to recipe.name, recipe %>
+        </span>
+        <br>
         <small>by 
           <span class="user">
             <%= link_to recipe.user.name, recipe.user %>
           </span> 
         </small>
 <br>
-          <strong>LEVEL:    </strong><%= recipe.level %><br>
-          <strong>COURSE:   </strong><%= recipe.course %><br>
-          <strong>COOKTIME: </strong><%= recipe.cook_time %><br>
-          <strong>SERVING:  </strong><%= recipe.serving %><br>  
+        <small>
+          <i class="icon-asterisk"></i> <%= recipe.level %><br>
+          <i class="icon-glass"></i> <%= recipe.course %><br>
+          <i class="icon-time"></i> <%= recipe.cook_time %> minutes<br>
+          <i class="icon-user"></i> <%= pluralize(recipe.serving, "person") %>  <br>  
             
         <span class="timestamp">
           Posted <%= time_ago_in_words(recipe.created_at) %> ago.
         </span>
+      </small>
         <% if current_user?(recipe.user) %>
           <%= link_to "delete", recipe, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
         <% end %>
-        <%= pluralize(recipe.votes.up.count, "like") %> 
+        <i class="icon-thumbs-up"></i><%= recipe.votes.up.count %> 
         <% if current_user.try(:admin?)%>
           <% if recipe.featured? %>
-            <%= link_to 'Unfeature', unfeature_recipe_path(recipe) %> 
+            <%= link_to 'unfeature', unfeature_recipe_path(recipe) %> 
           <% else %>
-            <%= link_to 'Feature', feature_recipe_path(recipe) %> 
+            <%= link_to 'feature', feature_recipe_path(recipe) %> 
           <% end %>
         <% end %>
       </div>

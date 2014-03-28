@@ -1,5 +1,12 @@
+
+
 <% if signed_in? %>
 
+<div class="row-fluid">
+  <div class = "center">
+    <%= render 'shared/recipe_carousel' %>
+  </div>
+</div>
 <div class="row-fluid">
   <div class="span3">
     <%= render 'shared/menu_block' %>
@@ -8,10 +15,12 @@
     <%= render 'recipes/lastest_feed' %>
   </div>
 </div>
+
 <div class="row-fluid">
-    <%= render 'recipes/recipe_index' %>
-  
+  <%= render 'recipes/recipe_index' %> 
 </div>
+
+
 <% else %>
   <div class="center hero-unit">
     <h1>Hello, fellow food-lover!</h1>
@@ -25,9 +34,18 @@
 
   </div>
 
-  <div id="recipe-feed-block">
-    <h3>LASTEST FEED</h3>
-  	<%= render 'recipes/recipe_index' %>
-	</div>
+  <div class="row-fluid">
+    <div class = "span10">
+      <%= render 'shared/recipe_carousel' %>
+    </div>
+    <div class="span3">
+      <%= render 'shared/menu_block' %>
+    </div>
+
+  </div>
+
+  <div class="row-fluid">
+    <%= render 'recipes/recipe_index' %> 
+  </div>
 <% end %>
 

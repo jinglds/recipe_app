@@ -1,58 +1,52 @@
 <div class="span12">
-	<div class="content-block recipe">
-			<h3 class="recipe-title home-heading ">All Recipes</h3>
-		<br>
-			<div class="row-fluid">
-				<%= render @recipes %>	
-			</div>
-			<%= will_paginate @recipes %>
+	<div class="section-block ">
+		<h3 class="recipe-title heading-title ">All Recipes</h3>
+		<div class="row-fluid">
+			<%= render @recipes %>	
+		</div>
+		<%= will_paginate @recipes %>
 	</div>
 	
 	<br>
 
-	<div class="content-block appetizer">
-			<h3 class="app-title home-heading">Appetizers</h3>
-		
-		<br>	
-			<div class="row-fluid">
-				<%= render @appetizers %>	
-			</div>
-			<%= will_paginate @appetizers, param_name: 'a_page' %>
+	<div class="section-block ">
+		<h3 class="app-title heading-title">Appetizers</h3>
+		<div class="row-fluid">
+			<%= render @appetizers %>	
+		</div>
+		<%= will_paginate @appetizers, param_name: 'a_page' %>
 	</div>
 
 	<br>
 
-	<div class="content-block maind">
-			<h3 class="maind-title home-heading">Main Dish</h3>
-		<br>
-			<div class="row-fluid">
-				<%= render @mains %>	
-			</div>
-			<%= will_paginate @mains, param_name: 'm_page' %>
+	<div class="section-block ">
+		<h3 class="maind-title heading-title">Main Dish</h3>
+		<div class="row-fluid">
+			<%= render @mains %>	
+		</div>
+		<div class="pull-right">
+		<%= will_paginate @mains, param_name: 'm_page' %>
 	</div>
-	
+	</div>
+
 	<br>
 
-	<div class="content-block dessert">
-			<h3 class="des-title home-heading">Desserts</h3>
-		
-		<br>
-			<div class="row-fluid">
-				<%= render @desserts %>	
-			</div>
-			<%= will_paginate @desserts, param_name: 'd_page' %>
+	<div class="section-block ">
+		<h3 class="des-title heading-title">Desserts</h3>
+		<div class="row-fluid">
+			<%= render @desserts %>	
+		</div>
+		<%= will_paginate @desserts, param_name: 'd_page' %>
 	</div>
-	
+
 	<br>
 
-	<div class="content-block beverage">
-			<h3 class="bev-title home-heading">Beverages</h3>
-		
-		<br>
-			<div class="row-fluid">
-				<%= render @beverages %>	
-			</div>
-			<%= will_paginate @beverages, param_name: 'b_page' %>
+	<div class="section-block ">
+		<h3 class="bev-title heading-title">Beverages</h3>
+		<div class="row-fluid">
+			<%= render @beverages %>	
+		</div>
+		<%= will_paginate @beverages, param_name: 'b_page' %>
 	</div>
 
 </div>

@@ -1,0 +1,17 @@
+<div id="myCarousel" class="carousel slide featured-carousel center">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"><center><%= image_tag @featured_recipes.first.image_url(:carousel).to_s %></center></div>
+    <div class="item"><center><%= image_tag @featured_recipes[1].image_url(:carousel).to_s %></center></div>
+    <div class="item"><center><%= image_tag @featured_recipes[2].image_url(:carousel).to_s %></center></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
