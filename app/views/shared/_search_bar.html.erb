@@ -14,6 +14,17 @@
   <%= f.text_field :ingredients_item_cont %>
 </div>
 
+<div class="field">
+  <small><%= f.label :course_eq, "Course:" %></small>
+<%= f.select :course_eq, options_from_collection_for_select(Recipe.unique_by_course, :course, :course), include_blank: true %>
+</div>
+
+<div class="field">
+  <small><%= f.label :level_eq, "Level:" %></small>
+<%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true %>
+</div>
+
+
 <br>
   <%= f.submit "search", class: "btn pull-right" %>
 <% end %>

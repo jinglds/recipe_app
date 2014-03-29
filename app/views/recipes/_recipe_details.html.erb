@@ -1,83 +1,92 @@
-<div class="container">
-<div class="row-fluid">
-  <div class="span heading-block">
-    <span class="recipe-name-title heading-title">
-      <%= link_to @recipe.name, @recipe %>
-    </span>
-    
+
+  <div class="row-fluid">
+    <div class="span6">
+      <%= image_tag @recipe.image_url(:big_thumb).to_s, class: " recipe-image-detail img-polaroid" %>
+    </div>
+    <div class=" span6 "><br><br>
+      <div class="recipe-name-title heading-title center">
+        <%= link_to @recipe.name, @recipe %> 
+      </div>
+      <br>
+      <blockquote class="pull-right">
+        <p><%= @recipe.description %></p>
+        <small>
+          by <%= link_to @recipe.user.name, @recipe.user %> <cite title="Source Title"><%= time_ago_in_words(@recipe.created_at) %> ago.</cite>
+        </small>
+      </blockquote>
+      <br><p>
+      <div class="row-fluid">
+        <div class="span center">
+          <ul class="inline ">
+            <li>
+              <i class="icon-asterisk "></i> <%= @recipe.level %>
+            </li>
+            <li>
+              <i class="icon-glass"></i> <%= @recipe.course %>
+            </li>
+            <li>
+              <i class="icon-time"></i> <%= @recipe.cook_time %> minutes
+            </li>
+            <li>
+              <i class="icon-user"></i> <%= pluralize(@recipe.serving, "serving") %>  
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <div class="row-fluid ">
+        <div class="span12 recipe-content-detail center"><div >
+          [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ]
+          <small><%= link_to "Like it!", like_recipe_path(@recipe), method: :put %></small>
+        </div>
+
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="row-fluid">
-  <div class="span recipe-detail">    
-    <small>
-      <i>
-        <span class="user">
-          by <%= link_to @recipe.user.name, @recipe.user %>
-        </span>
-        <span class="timestamp">
-          Posted <%= time_ago_in_words(@recipe.created_at) %> ago.
-        </span>
-      </i>
-    </small>
+
+<br><br>
+
+  <div class="row-fluid">
+    <div class="span in-di-block ">
+      <div class="head-block search-title"><h3 >Ingredients</h3></div><br>
+      <ul class="in-di">
+        <% for ingredient in @recipe.ingredients %>
+        <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
 
-
-
-
-<div class="row-fluid">
-  <div class="pull-left span6 ">
-    <%= image_tag @recipe.image_url(:fit_pad).to_s, class: "img-polaroid recipe-image-detail" %>
-  </div>
-  <div class="span5">
-    <strong>LEVEL:    </strong><%= @recipe.level %><br>
-    <strong>COURSE:   </strong><%= @recipe.course %><br>
-    <strong>COOKTIME: </strong><%= @recipe.cook_time %><br>
-    <strong>SERVING:  </strong><%= @recipe.serving %><br>
-  </div>
-</div>
-
-
-
-<div class="row-fluid">
-  <span class="heading-title">
-    Ingredients
-  </span>
-  <p>
-  <ul>
-    <% for ingredient in @recipe.ingredients %>
-    <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
-    <% end %>
-  </ul>
-</div>
-
-        <br><h4>INGREDIENTS</h4>
-        <ol>
-          <% for ingredient in @recipe.ingredients %>
-          <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
-          <% end %>
-        </ol>
-
-        <br><h4>DIRECTIONS</h4>
-        <ol>
+<br>
+  <div class="row-fluid">
+    <div class="span in-di-block">
+      <div class="head-block search-title"><h3 >Directions</h3></div><br>
+        <ol class="in-di">
           <% for direction in @recipe.directions %>
           <li><%= h direction.content %> </li>
           <% end %>
         </ol>
+      </div>
+    </div>
+  </div>
 
 
-        <br><h4>TAG</h4>
-        <p>Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+  <div class="row-fluid">
+    <div class="span">
+            
+            <p><br><b>TAG: </b><%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back to Recipe', recipe_path %> |
-<%= link_to "Upvote", like_recipe_path(@recipe), method: :put %> | 
-<%= link_to "Downvote", dislike_recipe_path(@recipe), method: :put %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+    <%= link_to 'Back to Recipe', recipe_path %> |
+    <%= link_to "Upvote", like_recipe_path(@recipe), method: :put %> | 
+    <%= link_to "Downvote", dislike_recipe_path(@recipe), method: :put %>
 
-<%= @recipe.votes.up.count %> LIKES
+    <%= @recipe.votes.up.count %> LIKES
+    </div>
+  </div>
 
-</div>
-<!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
-<strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>
- -->
+  <!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
+  <strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>
+   -->

@@ -1,92 +1,70 @@
-<!-- <div class="container ">
-	<div class="input-group input-append span10">
-		
-		<%= form_tag(recipes_path, :method => "get", id: "search-form", class: "form-search form-control") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-		<%= submit_tag "Search", class: "btn form-inline btn-default" %>
-		
-		<% end %>
-	
 
-	</div>
-</div> --> 
-<!-- <table>
-  <tr>
-    <div class="input-group input-append ">
-      <%= search_form_for @q, url: search_recipes_path,
-                              html: { method: :post } do |f| %>
-        <td>
-          <div class="field">
-            <%= f.label :name_cont, "Name contains" %>
-            <%= f.text_field :name_cont %>
-          </div>
-        </td>
-        <td>
-          <div class="field">
-            <%= f.label :cook_time_lteq, "Cooking Time less than" %>
-            <%= f.text_field :cook_time_lteq %>   
-          </div>
-        </td>
-        <td>
-          <div class="field">
-            <%= f.label :ingredients_item_cont %>
-            <%= f.text_field :ingredients_item_cont %>
-          </div>
-        </td>
-
-        <td>
-          <%= f.submit "search" %>
-        </td>
-      <% end %>
-    </div>
-
-    <td>
-      <th><%= sort_link(@q, :name, "Recipe Name") %></th>
-      <th><%= sort_link(@q, :cook_time, "Cook Time") %></th>
-      <th><%= sort_link(@q, :level, "Level") %></th>
-    </td>
-  </tr>
-</table> -->
 
 <container class="row-fluid">
-<%= search_form_for @q, class: "form-inline", url: search_recipes_path,
-                        html: { method: :post } do |f| %>
+  <div class="span6">
+  <%= search_form_for @q, class: "form-inline", url: search_recipes_path,
+                          html: { method: :post } do |f| %>
+    <div class="field">
+      <%= f.label :name_cont, "Name contains" %>
+      <%= f.text_field :name_cont %>
+    </div>
+    <div class="field">
+      <%= f.label :cook_time_lteq, "Cooking Time less than" %>
+      <%= f.text_field :cook_time_lteq %>   
+    </div>
   <div class="field">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont %>
+    <%= f.label :ingredients_item_cont %>
+    <%= f.text_field :ingredients_item_cont %>
+
   </div>
+
+
   <div class="field">
-    <%= f.label :cook_time_lteq, "Cooking Time less than" %>
-    <%= f.text_field :cook_time_lteq %>   
+    <small><%= f.label :course_eq, "Course:" %></small>
+  <%= f.select :course_eq, options_from_collection_for_select(Recipe.unique_by_course, :course, :course), include_blank: true, prompt:"Select recipe course", selected: nil %>
   </div>
-<div class="field">
-  <%= f.label :ingredients_item_cont %>
-  <%= f.text_field :ingredients_item_cont %>
 
+  <div class="field">
+    <small><%= f.label :level_eq, "Level:" %></small>
+  <%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true, prompt:"Select level of difficulty" %>
+  </div>
+
+
+<br>
+
+  <%= f.submit "search", class: "btn btn-primary pull-right btn-large"%>
+<% end %>
 </div>
 
-<div class="field">
-<%= f.select :course_eq, options_from_collection_for_select(Recipe.unique_by_course, :course, :course), include_blank: true %>
-</div>
 
-<div class="field">
-<%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true %>
-</div>
-
+<div class="span5">
+  <div class="subsection-head-block">
+    <br>
 <div id="tag_cloud">
+  <strong> Tag: </strong>
   <% tag_cloud Recipe.tag_counts, %w{s m l} do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
+</div>
+<br>
+  <div class="subsection-head-block">
+    <br>
+<strong>Sort by:</strong>
+</div>
 
+<ul>
+  <li><%= sort_link(@q, :name, "Recipe Name") %></li>
+  <li><%= sort_link(@q, :cook_time, "Cook Time") %></li>
+  <li><%= sort_link(@q, :level, "Level") %></li>
+</ul>
+</div>
 
-  <%= f.submit "search" %>
-<% end %>
 
 <tr>
-  <th><%= sort_link(@q, :name, "Recipe Name") %></th>
-  <th><%= sort_link(@q, :cook_time, "Cook Time") %></th>
-  <th><%= sort_link(@q, :level, "Level") %></th>
+  <th></th>
+  <th></th>
+  <th></th>
 </tr>
 
 </container>

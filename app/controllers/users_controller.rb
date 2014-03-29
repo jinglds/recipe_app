@@ -10,10 +10,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @microposts = @user.microposts.paginate(page: params[:page])
-    @recipes = @user.recipes.paginate(page: params[:page])
+    # @recipes = @user.recipes.paginate(page: params[:page], per_page: 12)
     @comment = Comment.new
     # @comment_items = Recipe.comments
-
+    @recipe = @user.recipes.paginate(page: params[:page], per_page: 12)
+    @recipes = @user.recipes.paginate(page: params[:page], per_page: 12)
+    
+    @featured_recipes = Recipe.featured_recipes.order("created_at DESC")
+    
 
     @feed_items = @user.recipes.paginate(page: params[:page])
 

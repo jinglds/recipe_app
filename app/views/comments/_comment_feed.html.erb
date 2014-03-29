@@ -2,9 +2,9 @@
  <% if @comment_items.any? %>
 
 
-  <ol class="microposts">
+  <ul class="recipes unstyle">
     <%= render partial: 'comments/comment_item', collection: @comment_items %>
-  </ol>
+  </ul>
 
   <%= will_paginate @comment_items %>
 

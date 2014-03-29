@@ -1,14 +1,37 @@
+<!--
 <fieldset>
 	<table>
 		<tr>
-			<td><%= f.text_field :item, placeholder:"E.g. apple"  %></td>
-			<td><%= f.text_field :amount, placeholder:"amount"  %></td>
-			<td><%= f.text_field :unit, placeholder:"unit"  %></td>
-			<td><%= f.text_field :alternative, placeholder:"alternative"  %></td>
+			<td><%= f.text_field :item, placeholder:"E.g. milk"  %></td>
+			<td><%= f.text_field :amount, placeholder:"E.g. 200"  %></td>
+			<td><%= f.text_field :unit, placeholder:"E.g. ml"  %></td>
+			<td><%= f.text_field :alternative, placeholder:"soy milk"  %></td>
 			<td><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></td>
 		</tr>
 		<tr>
 			
 		</tr>
 	</table>
+</fieldset>
+
+-->
+
+<fieldset>
+    
+      <div class="span2">
+        <%= f.text_field :item, placeholder:"E.g. milk"  %>
+      </div>
+      <div class="span2">
+        <%= f.text_field :amount, placeholder:"E.g. 200"  %>
+      </div>
+      <div class="span2">
+        <%= f.text_field :unit, placeholder:"E.g. ml"  %>
+      </div>
+      <div class="span2">
+        <%= f.text_field :alternative, placeholder:"E.g. soy milk"  %>
+      </div>
+      <div class="span2">
+      	<%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %>
+      </div>
+    
 </fieldset>

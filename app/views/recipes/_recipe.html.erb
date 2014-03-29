@@ -1,11 +1,11 @@
 <div class="span3">  
-  <div class="thumbnail recipe-thumb ">
+  <div class="recipe-thumb ">
     <div class="recipe-image-thumb">
       <%= link_to image_tag(recipe.image_url(:thumb).to_s), recipe %>
     </div>
       <div class="caption">
         <span class="recipe-name-thumb">
-          <%= link_to recipe.name, recipe %>
+          <%= link_to recipe.name, recipe %> 
         </span>
         <br>
         <small>by 
@@ -14,29 +14,36 @@
           </span> 
         </small>
 <br>
+<div class="recipe-content">
         <small>
           <i class="icon-asterisk"></i> <%= recipe.level %><br>
           <i class="icon-glass"></i> <%= recipe.course %><br>
           <i class="icon-time"></i> <%= recipe.cook_time %> minutes<br>
-          <i class="icon-user"></i> <%= pluralize(recipe.serving, "person") %>  <br>  
-            
+          <i class="icon-user"></i> <%= pluralize(recipe.serving, "person") %>  <br> <br> 
+          </small>
+            </div>
+
+            <div class="recipe-action">
+               <small>
         <span class="timestamp">
           Posted <%= time_ago_in_words(recipe.created_at) %> ago.
-        </span>
-      </small>
+        </span> <br>
+     <i class="icon-thumbs-up"></i><%= recipe.votes.up.count %>
         <% if current_user?(recipe.user) %>
-          <%= link_to "delete", recipe, method: :delete,
+          <%= link_to " | delete", recipe, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: recipe.name %>
         <% end %>
-        <i class="icon-thumbs-up"></i><%= recipe.votes.up.count %> 
+         
         <% if current_user.try(:admin?)%>
           <% if recipe.featured? %>
-            <%= link_to 'unfeature', unfeature_recipe_path(recipe) %> 
+            <%= link_to ' | unfeature', unfeature_recipe_path(recipe) %> 
           <% else %>
-            <%= link_to 'feature', feature_recipe_path(recipe) %> 
+            <%= link_to ' | feature', feature_recipe_path(recipe) %> 
           <% end %>
         <% end %>
+      </div>
+    </small>
       </div>
     
   </div>

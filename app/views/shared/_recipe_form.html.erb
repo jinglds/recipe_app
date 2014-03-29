@@ -2,8 +2,8 @@
 <%= form_for @recipe, :html => {:multipart => true} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <div class="head-block search-title"><h3 class="head-subtitle">RECIPE DETAILS</h3></div>
-
+    <div class="search-title"><h3 >Recipe Details</h3></div>
+    <br>
     <table>
       <div class ="section-container">
       <tr>
@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <td><%= f.label :tag_list, "Tags (separated by commas)" %></td>
-        <td><%= f.text_field :tag_list %></td>
+        <td><%= f.text_field :tag_list, placeholder:"E.g. vegetarian, eat-clean, sweet-tooth" %></td>
       </tr>
       <tr>
         <td><%= f.label :level %></td>
@@ -29,10 +29,12 @@
       <tr>
         <td><%= f.label :cook_time %></td>
         <td><%= f.text_field :cook_time, placeholder:"E.g. 20" %></td>
+        <td> minutes</td>
       </tr>
       <tr>
         <td><%= f.label :serving %></td>
-        <td><%= f.text_field :serving, placeholder:"2 persons" %></td>
+        <td><%= f.text_field :serving, placeholder:"2" %></td>
+        <td> persons</td>
       <tr>
         <td><%= f.label :privacy %></td>
         <td><%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %></td>
@@ -49,26 +51,41 @@
 
 
 
-    <div class="head-block search-title"><h3 class="head-subtitle">INGREDIENTS</h3></div>
-      <table>
+  <div class="search-title"><h3 >Ingredients</h3></div>
+    <br>
+
         <div class ="section-container">
-          <table class="row-fluid">
-            <tr>
-              <td>ITEM</td>
-              <td>AMOUNT</td>
-              <td>UNIT</td>
-              <td>ALTERNATIVE</td>
-            </tr>
-          </table>
-          <%= f.fields_for :ingredients do |builder| %>
-          <%= render 'recipes/ingredient_fields', :f => builder %>
-          <% end %>
-          <%= link_to_add_fields "Add Ingredient", f, :ingredients %>
+          <div class="row pull-left">
+            <div class="span2">
+              <b class="pull-right">ITEM</b>
+            </div>
+            <div class="span2">
+              <b class="pull-right">AMOUNT</b>
+            </div>
+            <div class="span2">
+              <b class="pull-right">UNIT</b>
+            </div>
+            <div class="span2">
+              <b class="pull-right">ALTERNATIVE</b>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span12">
+              <%= f.fields_for :ingredients do |builder| %>
+              <%= render 'recipes/ingredient_fields', :f => builder %>
+              <% end %>
+      
+              <%= link_to_add_fields "Add Ingredient", f, :ingredients %>
+            </div>
+          </div>
         </div>
-      </table>
+      
       <p>
 
-<div class="head-block search-title"><h3 class="head-subtitle">DIRECTIONS</h3></div>
+
+
+<div class="search-title"><h3 >Directions</h3></div>
+<br>
   <table>
     <div class ="section-container">
       <%= f.fields_for :directions do |builder| %>
@@ -77,9 +94,10 @@
       <%= link_to_add_fields "Add Direction", f, :directions %>
     </div>
   </table>
-  </div>
-  <%= f.submit "Create", class: "btn btn-large btn-primary" %>
-  </div>
+<br>
+<div class="pull-right">
+  <%= f.submit "Submit", class: "btn btn-large btn-success" %>
+</div>
 <% end %>
 
 

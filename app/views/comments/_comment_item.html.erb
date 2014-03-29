@@ -1,13 +1,15 @@
-<li id="<%= comment_item.id %>">
-  <%= link_to gravatar_for(comment_item.user), comment_item.user %>
-  <span class="user">
-    <%= link_to comment_item.user.name, comment_item.user %>
-  </span>
-  <span class="content"><%= comment_item.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(comment_item.created_at) %> ago.
-  </span>
-  <% if current_user?(comment_item.user) %>
-    <%= link_to 'Delete', [@recipe, comment_item], :method => :delete, :confirm => "Are you sure?" %>
-  <% end %>
+<li id="<%= comment_item.id %>" >
+  <div class="comment_block">
+    <%= link_to gravatar_for(comment_item.user), comment_item.user %>
+    <span class="user">
+      <%= link_to comment_item.user.name, comment_item.user %>
+    </span>
+    <span class="content"><%= comment_item.content %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(comment_item.created_at) %> ago.
+    </span>
+    <% if current_user?(comment_item.user) %>
+      <%= link_to 'Delete', [@recipe, comment_item], :method => :delete, :confirm => "Are you sure?" %>
+    <% end %>
+  </div>
 </li>

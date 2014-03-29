@@ -1,4 +1,8 @@
-<div id="myCarousel" class="carousel slide featured-carousel center">
+ 
+<h3 class="section-title"><%= link_to "Featured Recipes", recipes_path %></h3>
+
+<div class="recipe-carousel">
+<div id="myCarousel" class="carousel slide featured-carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -6,12 +10,62 @@
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <div class="active item"><center><%= image_tag @featured_recipes.first.image_url(:carousel).to_s %></center></div>
-    <div class="item"><center><%= image_tag @featured_recipes[1].image_url(:carousel).to_s %></center></div>
-    <div class="item"><center><%= image_tag @featured_recipes[2].image_url(:carousel).to_s %></center></div>
+    <div class="active item">
+      <center>
+        <div id="carousel-container">
+          <div id="navi">
+            <%= link_to image_tag(@featured_recipes.first.image_url(:carousel).to_s), @featured_recipes.first %>
+          </div>
+            <div id="infoi">
+              <div id="carousel-recipe-name">
+                <%= @featured_recipes.first.name %>
+              </div>
+              <div id="carousel-recipe-details">
+                <%= @featured_recipes.first.description %>
+              </div>
+            </div>
+        </div>
+      </center>
+
+
+    </div>
+    <div class="item">
+      <center>
+        <div id="carousel-container">
+          <div id="navi">
+            <%= link_to image_tag(@featured_recipes[1].image_url(:carousel).to_s), @featured_recipes[1] %>
+          </div>
+            <div id="infoi">
+              <div id="carousel-recipe-name">
+                <%= @featured_recipes[1].name %>
+              </div>
+              <div id="carousel-recipe-details">
+                <%= @featured_recipes[1].description %>
+              </div>
+            </div>
+        </div>
+    </center>
+    </div>
+    <div class="item">
+        <div id="carousel-container">
+          <div id="navi">
+            <%= link_to image_tag(@featured_recipes[2].image_url(:carousel).to_s), @featured_recipes[2] %>
+          </div>
+            <div id="infoi">
+              <div id="carousel-recipe-name">
+                <%= @featured_recipes[2].name %>
+              </div>
+              <div id="carousel-recipe-details">
+                <%= @featured_recipes[2].description %>
+              </div>
+            </div>
+        </div>
+    </center>
+    </div>
   </div>
   <!-- Carousel nav -->
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
 
+</div>

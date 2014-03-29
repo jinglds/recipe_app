@@ -1,9 +1,10 @@
-<div class="media recipe-feed-item">
+<div class="row-fluid">
+<div class=" recipe-feed-item">
     <div class="pull-left span4">
 
       <%= link_to image_tag(feed_item.image_url(:thumb).to_s), feed_item %>
     </div>
-    <div class="media-body ">
+    <div class="media-body span6">
       <span class="recipe-name-thumb"><%= link_to feed_item.name, feed_item %></span><br>
          <small>
           <i>
@@ -12,15 +13,36 @@
             </span>
             <span class="timestamp">
               Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-            </span>
+            </span> <br>
           </i>
+           <!-- <i><%= feed_item.description %></i><br> -->
         </small>
-            <i><%= feed_item.description %></i><br>
+        <div class="recipe-content">
+          <small>
+           <br>
           <i class="icon-asterisk"></i> <%= feed_item.level %><br>
           <i class="icon-glass"></i> <%= feed_item.course %><br>
           <i class="icon-time"></i> <%= feed_item.cook_time %> minutes<br>
           <i class="icon-user"></i> <%= pluralize(feed_item.serving, "person") %>  <br>  
-            
-        
+            </small>
+        </div>
+
+<i class="icon-thumbs-up"></i><%= feed_item.votes.up.count %>
+        <% if current_user?(feed_item.user) %>
+          <%= link_to " | delete", feed_item, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: feed_item.name %>
+        <% end %>
+         
+        <% if current_user.try(:admin?)%>
+          <% if feed_item.featured? %>
+            <%= link_to ' | unfeature', unfeature_recipe_path(feed_item) %> 
+          <% else %>
+            <%= link_to ' | feature', feature_recipe_path(feed_item) %> 
+          <% end %>
+        <% end %>
+
     </div>
 </div>
+</div>
+<div class="small-br"><br></div>

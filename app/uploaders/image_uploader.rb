@@ -37,11 +37,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
     version :thumb do
-     process :resize_to_fill => [200, 180]
+     process :resize_to_fill => [200, 160]
     end
 
     version :big_thumb do
-     process :resize_to_fill => [400,400]
+     process :resize_to_fill => [400,360]
     end
 
     version :fit_pad do
@@ -49,7 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
 
     version :carousel do
-      process :resize_to_fill => [600, 450]
+      process :resize_to_fill => [600, 420]
     end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
