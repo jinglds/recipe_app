@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
     # @recipes.directions
     # @user = User.find(params[:id])
     # @microposts = @user.microposts.paginate(page: params[:page])
-
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new 
     @comment_items =  @recipe.comment_feed.paginate(page: params[:page], per_page: 10)

@@ -37,7 +37,13 @@
       <div class="row-fluid ">
         <div class="span12 recipe-content-detail center"><div >
           [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ]
-          <small><%= link_to "Like it!", like_recipe_path(@recipe), method: :put if signed_in? %></small>
+          <small>
+            <% if @user.voted_up_on? @recipe %>
+              <%= link_to "Unlike", dislike_recipe_path(@recipe), method: :put %>              
+            <% else %>
+              <%= link_to "Like it!", like_recipe_path(@recipe), method: :put if signed_in? %>
+            <% end %>
+          </small>
         </div>
 
         </div>
@@ -79,11 +85,9 @@
             <p><br><b>TAG: </b><%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-    <%= link_to 'Back to Recipe', recipe_path %> |
-    <%= link_to "Upvote", like_recipe_path(@recipe), method: :put %> | 
-    <%= link_to "Downvote", dislike_recipe_path(@recipe), method: :put %>
+    <%= link_to 'Back to All Recipes', recipes_path %> |
 
-    <%= @recipe.votes.up.count %> LIKES
+
     </div>
   </div>
 
