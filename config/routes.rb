@@ -35,6 +35,14 @@ end
 
   match "recipes/:id/feature" => "recipes#feature", via: [:get, :post], :as => "feature_recipe"
   match "recipes/:id/unfeature" => "recipes#unfeature", via: [:get, :post], :as => "unfeature_recipe"
+
+
+
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

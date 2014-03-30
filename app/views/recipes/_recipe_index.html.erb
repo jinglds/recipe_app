@@ -14,7 +14,10 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="app-title heading-title">Appetizers</h3>
+		<h3 class="app-title heading-title">
+
+			<%= link_to "Appetizers", recipes_path(@recipes, :'q[course_eq]' => 'appetizer')%>		
+      	</h3>
 		<div class="row-fluid">
 			<%= render @appetizers %>	
 		</div>
@@ -28,7 +31,9 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="maind-title heading-title">Main Dish</h3>
+		<h3 class="maind-title heading-title">
+			<%= link_to "Main Dish", recipes_path(@recipes, :'q[course_eq]' => 'main')%>	
+		</h3>
 		<div class="row-fluid">
 			<%= render @mains %>	
 		</div>
@@ -42,7 +47,9 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="des-title heading-title">Desserts</h3>
+		<h3 class="des-title heading-title">
+			<%= link_to "Desserts", recipes_path(@recipes, :'q[course_eq]' => 'dessert')%>	
+		</h3>
 		<div class="row-fluid">
 			<%= render @desserts %>	
 		</div>
@@ -56,7 +63,9 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="bev-title heading-title">Beverages</h3>
+		<h3 class="bev-title heading-title">
+			<%= link_to "Beverages", recipes_path(@recipes, :'q[course_eq]' => 'beverage')%>	
+		</h3>
 		<div class="row-fluid">
 			<%= render @beverages %>	
 		</div>
@@ -65,5 +74,5 @@
 		<%= will_paginate @beverages, param_name: 'b_page' %></div>
 		</div>
 	</div>
-
+</div>
 </div>
