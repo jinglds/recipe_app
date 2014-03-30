@@ -158,6 +158,7 @@ class RecipesController < ApplicationController
                                       :serving,
                                       :ingredients,
                                       :directions,
+                                      :featured,
                                       :privacy,
                                       :image,
                                       :tag_list,

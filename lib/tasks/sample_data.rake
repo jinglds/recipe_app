@@ -42,11 +42,14 @@ def make_recipes
     course = ['appetizer', 'main', 'dessert', 'beverage']
     serving = ['1','2','3']
     description = Faker::Lorem.sentence(5)
-    item = ['meat', 'fish', 'banana', 'apple', 'chocolate']
+    item = ['meat', 'fish', 'banana', 'apple', 'chocolate', 'milk', 'oil']
+    amount = ['150','200','3','50', '0.5']
+    unit =['ml','gram','teaspoon','cup',' ']
+    alternative =['peach','cocoa','sugar','soymilk','butter']
     directions = Faker::Lorem.sentence(1)
     privacy = ['public','private','friends-only']
     image = ['default_food.jpg', 'default_food.jpg']
-
+    featured=['t', 'f', 'f', 'f']
     # users.each { |user| user.recipes.create!( name: name,
     #                                           description: description,
     #                                           level: "3",
@@ -67,9 +70,26 @@ def make_recipes
                                               serving: serving.sample,
 
                                               image: image.sample,
-                                              privacy: privacy.sample
+                                              privacy: privacy.sample,
+                                              featured: featured.sample
+
+                                              # ingredients_attributes:(
+                                              #     item: item.sample,
+                                              #     amount: amount.sample,
+                                              #     unit: unit.sample,
+                                              #     alternative: alternative.sample
+                                                # )
                                               
                                               ) }
+    # users.each{ |user| user.recipes.create_ingredients!(
+    #                                               item: item.sample,
+    #                                               amount: amount.sample,
+    #                                               unit: unit.sample,
+    #                                               alternative: alternative.sample
+    #                                             )}
+    # users.each{ |user| user.recipes.directions.create!(
+    #                                               content: directions
+                                                # )}
   end
 end
 

@@ -8,7 +8,7 @@
         <%= link_to @recipe.name, @recipe %> 
       </div>
       <br>
-      <blockquote class="pull-right">
+      <blockquote class="center">
         <p><%= @recipe.description %></p>
         <small>
           by <%= link_to @recipe.user.name, @recipe.user %> <cite title="Source Title"><%= time_ago_in_words(@recipe.created_at) %> ago.</cite>
@@ -16,7 +16,7 @@
       </blockquote>
       <br><p>
       <div class="row-fluid">
-        <div class="span center">
+        <div class="span12 center">
           <ul class="inline ">
             <li>
               <i class="icon-asterisk "></i> <%= @recipe.level %>
