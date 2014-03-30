@@ -71,6 +71,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+
+
+  def favorites
+    @user = current_user
+    @recipes = @user.find_voted_items
+  end
+
   private
 
     def user_params

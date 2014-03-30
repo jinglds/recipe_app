@@ -38,10 +38,13 @@
         <div class="span12 recipe-content-detail center"><div >
           [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ]
           <small>
+
+            <% if signed_in? %>
             <% if @user.voted_up_on? @recipe %>
               <%= link_to "Unlike", dislike_recipe_path(@recipe), method: :put %>              
             <% else %>
-              <%= link_to "Like it!", like_recipe_path(@recipe), method: :put if signed_in? %>
+              <%= link_to "Like it!", like_recipe_path(@recipe), method: :put  %>
+            <% end %>
             <% end %>
           </small>
         </div>
@@ -90,7 +93,3 @@
 
     </div>
   </div>
-
-  <!-- <strong>INGREDIENTS:    </strong><br><%= (h @recipe.ingredients).gsub("\n", '<br>').html_safe%><br>
-  <strong>DIRECTIONS:   </strong><br><%=  (h @recipe.directions).gsub("\n", '<br>').html_safe %><br>
-   -->

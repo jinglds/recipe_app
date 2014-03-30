@@ -20,6 +20,7 @@ RecipeApp::Application.routes.draw do
 end
   
   root  'static_pages#home'
+  match '/favorites', to: 'users#favorites',  via: 'get'
   match '/feed_index', to: 'recipes#feed_index',          via: 'get'
   match '/index', to: 'recipes#index',          via: 'get'
   match '/newrecipe',  to: 'recipes#new',       via: 'get'

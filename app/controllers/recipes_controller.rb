@@ -80,6 +80,7 @@ class RecipesController < ApplicationController
 
   end
 
+  
   def search
     index
     render :index

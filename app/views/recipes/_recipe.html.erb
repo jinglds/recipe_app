@@ -28,7 +28,7 @@
         <span class="timestamp">
           Posted <%= time_ago_in_words(recipe.created_at) %> ago.
         </span> <br>
-     <i class="icon-thumbs-up"></i><%= recipe.votes.up.count %>
+     <i class="icon-heart"></i><%= recipe.votes.up.count %>
         <% if current_user?(recipe.user) %>
           <%= link_to " | delete", recipe, method: :delete,
                                      data: { confirm: "You sure?" },

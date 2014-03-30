@@ -1,4 +1,6 @@
 <% provide(:title, @recipe.name) %>
 <%= render 'recipes/recipe_details'%>
+<% if signed_in? %>
 <%= render 'shared/comment_form' %>
+<% end %>
 <%= render 'comments/comment_feed' %>
