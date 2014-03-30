@@ -1,7 +1,8 @@
-
- <% if @comment_items.any? %>
-
-
+<div class="row">
+	<h3 ><div id="comments_count">Comments (<%= @comment_items.count %>)</h3>
+</div>
+<div class="row">
+<% if @comment_items.any? %>
   <ul class="recipes unstyle">
     <%= render partial: 'comments/comment_item', collection: @comment_items %>
   </ul>
@@ -9,3 +10,4 @@
   <%= will_paginate @comment_items %>
 
 <% end %>
+</div>

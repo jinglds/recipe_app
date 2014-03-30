@@ -75,7 +75,8 @@ class UsersController < ApplicationController
 
   def favorites
     @user = current_user
-    @recipes = @user.find_voted_items
+    @recipe_ids = @user.find_voted_items.id
+    @recipes = Recipe.find(params[@recipe_ids])
   end
 
   private

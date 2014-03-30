@@ -9,7 +9,12 @@ RecipeApp::Application.routes.draw do
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :recipes do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy] do
+      member do
+        put "like", to: "comments#upvote"
+        put "dislike", to: "comments#downvote"
+      end
+    end
     member do
       put "like", to: "recipes#upvote"
       put "dislike", to: "recipes#downvote"

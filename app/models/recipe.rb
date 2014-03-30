@@ -28,7 +28,6 @@ class Recipe < ActiveRecord::Base
   scope :featured_recipes, where(featured: 't')
 
 
-
   # Returns recipes from the users being followed by the given user.
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
@@ -42,8 +41,16 @@ class Recipe < ActiveRecord::Base
     Comment.where("recipe_id =?", id)
   end
 
+  def fav_feed
+    Recipe.where("recipes=?", id)
+  end
 
 
+  ransacker :full_name do |parent|
+    Arel::Nodes::InfixOperation.new('||',
+      Arel::Nodes::InfixOperation.new('||', parent.table[:first_name], ' '),
+      parent.table[:last_name])
+  end
 
 
 

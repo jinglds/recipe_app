@@ -1,0 +1,8 @@
+ <%= search_form_for @q, class: "form-inline", url: search_recipes_path,
+                          html: { method: :post } do |f| %>
+    <div class="field">
+      <%= f.label :name_cont, "Name contains" %>
+      <%= f.text_field :ingredients_item_cont %>
+    </div>
+
+    <% end %>

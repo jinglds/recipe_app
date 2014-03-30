@@ -681,7 +681,7 @@ color: #484B48;
 
 
 
-.recipe-name-thumb > a{
+/*.recipe-name-thumb > a{
   font-size:large;
   font-weight:bold;
   line-height: 10px;
@@ -691,23 +691,80 @@ color: #484B48;
     color: #eb5158;
   }
 }
+*/
 
-/*.recipe-thumb {
-  border-radius: 5px;
-  height: 310px; 
-  padding-bottom: 20px;
-  /*box-shadow: 1px 1px 3px 1px #CED5D5;*/
-  /*
-  border: 2px dotted #C2A366;
-  margin-bottom: 5px;
-  &:hover{
-    box-shadow: 2px 2px 3px 1px   #C2A366;
-    background-color:   #FFFAF5;
+
+
+.recipe-side-overlay-thumb {
+    position: absolute;
+
+
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    /*background-color: black;*/
+    color: white;
+    z-index: 10;
+    top: 0;
+    left:80%;
+    height: 100%;
+    width:20%;
+}
+
+.recipe-overlay-thumb {
+    position: absolute;
+
+
+  /*  filter: alpha(opacity=50);
+    opacity: 0.7;*/
+    background-color: black;
+    
+    color: white;
+    z-index: 10;
+    top: 75%;
+    height: 25%;
+    width:100%;
+}
+
+
+.recipe-name-thumb > a{
+  position: absolute;
+  font-size:100%;
+  font-weight:bold;
+  color: white;
+  z-index: auto;
+  top:6%;
+  left: 5%;
+    &:hover{
+    color: #eb5158;
   }
-}*/ 
+}
+
+.recipe-details-thumb{
+  position: absolute;
+  font-size:100%;
+  color: white;
+  z-index: 10;
+  padding-right: 5px;
+  left: 40%;
+    &:hover{
+    color: #eb5158;
+  }
+}
+
 
 .recipe-thumb {
-  /*border-radius: 5px;*/
+    position: relative;
+    box-shadow: 3px 3px 5px 3px #CED5D5;
+
+    top: 80%;
+    &:hover{
+      box-shadow: 3px 3px 5px 3px #72B0DB;
+    }
+}
+
+/*
+.recipe-thumb {
+  border-radius: 5px;
   float:left;
   height: 310px; 
   padding-top: 10px;
@@ -715,17 +772,19 @@ color: #484B48;
   padding-right: 10px;
   padding-bottom: 20px;
   box-shadow: 1px 1px 3px 1px #CED5D5;
-  /*border: 2px dotted #C2A366;*/
+  border: 2px dotted #C2A366;
   margin-bottom: 5px;
   &:hover{
     box-shadow: 2px 2px 3px 1px   #C2A366;
     background-color:   #FFFAF5;
   }
-}
+} 
 
-.recipe-image-thumb{
+*/
+
+/*.recipe-image-thumb{*/
   /*border: 1px solid #9BA39C;*/
-}
+/*}
 .recipe-content{
   line-height: 40%;
 }
@@ -737,12 +796,12 @@ color: #484B48;
 .thumbnails li {
     width: 150px;
     height: 100px;
-    background: red;
-    float: none !important; /* to overwrite the default property on the bootstrap stylesheet */
+    background: red;*/
+/*    float: none !important;  to overwrite the default property on the bootstrap stylesheet 
     display: inline-block;
     *display: inline; /* ie7 support */
-    zoom: 1;
-}
+    /*zoom: 1;*/
+/*}*/
 
 
 /* ----- carousel ----- */

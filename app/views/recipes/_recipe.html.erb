@@ -1,3 +1,59 @@
+
+
+<div class="span3">  
+  <div class="recipe-thumb ">
+    <%= link_to image_tag(recipe.image_url(:thumb).to_s), recipe %>
+  
+    <div class="recipe-overlay-thumb">
+      <div class="recipe-name-thumb ">
+        <%= link_to recipe.name, recipe %> 
+      </div><br>
+      <div class="recipe-details-thumb">
+      <ul class="inline pull-right">
+        <small>
+          <i class="icon-asterisk icon-white"></i> <%= recipe.level %>
+          <i class="icon-glass icon-white"></i> <%= recipe.course[0..0].upcase %>
+          <i class="icon-time icon-white"></i> <%= recipe.cook_time %> 
+          <i class="icon-user icon-white"></i> <%= recipe.serving %> 
+        </small>
+      </ul>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <small> 
+    <span class="timestamp pull-right">
+      by <%= link_to recipe.user.name, recipe.user %> <%= time_ago_in_words(recipe.created_at) %> ago.
+    </span> <br>
+    <div class="pull-right">
+      <i class="icon-heart"></i><%= recipe.votes.up.count %>
+      <% if current_user?(recipe.user) %>
+        <%= link_to " | delete", recipe, method: :delete,
+                                   data: { confirm: "You sure?" },
+                                   title: recipe.name %>
+      <% end %>
+       
+      <% if current_user.try(:admin?)%>
+        <% if recipe.featured? %>
+          <%= link_to ' | unfeature', unfeature_recipe_path(recipe) %> 
+        <% else %>
+          <%= link_to ' | feature', feature_recipe_path(recipe) %> 
+        <% end %>
+      <% end %>
+    </div>
+  </small>  
+</div>
+    
+
+
+
+
+<!-- 
+
+
 <div class="span3">  
   <div class="recipe-thumb ">
     <div class="recipe-image-thumb">
@@ -50,3 +106,4 @@
 </div>
 
 
+ -->

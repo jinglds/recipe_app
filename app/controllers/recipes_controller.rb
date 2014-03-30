@@ -36,6 +36,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new 
     @comment_items =  @recipe.comment_feed.paginate(page: params[:page], per_page: 10)
+
+
+
+    
   end
 
 

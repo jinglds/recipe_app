@@ -88,8 +88,14 @@
             <p><br><b>TAG: </b><%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-    <%= link_to 'Back to All Recipes', recipes_path %> |
-
+    <%= link_to 'Back to All Recipes', recipes_path %> 
+    <% if current_user.try(:admin?)%>
+      <% if @recipe.featured? %>
+        <%= link_to '| unfeature', unfeature_recipe_path(@recipe) %> 
+      <% else %>
+        <%= link_to '| feature', feature_recipe_path(@recipe) %> 
+      <% end %>
+    <% end %>
 
     </div>
   </div>
