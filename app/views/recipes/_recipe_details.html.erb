@@ -41,9 +41,9 @@
 
             <% if signed_in? %>
             <% if @user.voted_up_on? @recipe %>
-              <%= link_to "Unlike", dislike_recipe_path(@recipe), method: :put %>              
+              <%= link_to "UnFav", dislike_recipe_path(@recipe), method: :put %>              
             <% else %>
-              <%= link_to "Like it!", like_recipe_path(@recipe), method: :put  %>
+              <%= link_to "Fav it!", like_recipe_path(@recipe), method: :put  %>
             <% end %>
             <% end %>
           </small>

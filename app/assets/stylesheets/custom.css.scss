@@ -681,7 +681,7 @@ color: #484B48;
 
 
 
-/*.recipe-name-thumb > a{
+.recipe-name-thumb-black > a{
   font-size:large;
   font-weight:bold;
   line-height: 10px;
@@ -691,7 +691,7 @@ color: #484B48;
     color: #eb5158;
   }
 }
-*/
+
 
 
 
@@ -699,8 +699,8 @@ color: #484B48;
     position: absolute;
 
 
-    filter: alpha(opacity=50);
-    opacity: 0.7;
+  /*  filter: alpha(opacity=50);
+    opacity: 0.7;*/
     /*background-color: black;*/
     color: white;
     z-index: 10;
@@ -714,8 +714,8 @@ color: #484B48;
     position: absolute;
 
 
-  /*  filter: alpha(opacity=50);
-    opacity: 0.7;*/
+    filter: alpha(opacity=50);
+    opacity: 0.6;
     background-color: black;
     
     color: white;

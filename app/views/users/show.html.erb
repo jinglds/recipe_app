@@ -1,27 +1,4 @@
-<!--<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
-    <% if @user.recipes.any? %>
-      <h3>My Recipes (<%= @user.recipes.count %>)</h3>
-      <ol class="microposts">
-        <%= render @recipes %>
-      </ol>
-      <%= will_paginate @recipes %>
-    <% end %>
-  </div>
-</div> -->
+
 
 <% provide(:title, @user.name) %>
 <div class="row-fluid">

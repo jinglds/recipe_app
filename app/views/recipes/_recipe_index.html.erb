@@ -1,6 +1,6 @@
 <div class="span12">
 	<div class="section-block ">
-		<h3 class="recipe-title heading-title "><%= link_to "All Recipes", recipes_path %></h3>
+		<h3 class="recipe-title heading-title search-title"><%= link_to "All Recipes", recipes_path %></h3>
 		<div class="row-fluid">
 			<%= render @recipes %>	
 		</div>
@@ -14,7 +14,7 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="app-title heading-title">
+		<h3 class="app-title heading-title search-title">
 
 			<%= link_to "Appetizers", recipes_path(@recipes, :'q[course_eq]' => 'appetizer')%>		
       	</h3>
@@ -31,7 +31,7 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="maind-title heading-title">
+		<h3 class="maind-title heading-title search-title">
 			<%= link_to "Main Dish", recipes_path(@recipes, :'q[course_eq]' => 'main')%>	
 		</h3>
 		<div class="row-fluid">
@@ -47,7 +47,7 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="des-title heading-title">
+		<h3 class="des-title heading-title search-title">
 			<%= link_to "Desserts", recipes_path(@recipes, :'q[course_eq]' => 'dessert')%>	
 		</h3>
 		<div class="row-fluid">
@@ -63,7 +63,7 @@
 	<br>
 
 	<div class="section-block ">
-		<h3 class="bev-title heading-title">
+		<h3 class="bev-title heading-title search-title">
 			<%= link_to "Beverages", recipes_path(@recipes, :'q[course_eq]' => 'beverage')%>	
 		</h3>
 		<div class="row-fluid">

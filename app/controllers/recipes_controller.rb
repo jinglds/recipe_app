@@ -50,15 +50,15 @@ class RecipesController < ApplicationController
     @q = Recipe.search(params[:q])
     # @recipes = Recipe.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 4)
     
-    @recipes = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 8)
+    @recipes = @q.result(distinct: true).order("created_at DESC").paginate(page: params[:page], per_page: 18)
     
     if params[:tag]
-    @recipes = @recipes.tagged_with(params[:tag]).order("created_at DESC").paginate(page: params[:page], per_page: 8)
+    @recipes = @recipes.tagged_with(params[:tag]).order("created_at DESC").paginate(page: params[:page], per_page: 18)
     end
-    @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 8)
-    @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 8)
-    @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 8)
-    @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 8)
+    @appetizers = Recipe.filtered_appetizers.order("created_at DESC").paginate(page: params[:a_page], per_page: 18)
+    @mains = Recipe.filtered_mains.order("created_at DESC").paginate(page: params[:m_page], per_page: 18)
+    @desserts = Recipe.filtered_desserts.order("created_at DESC").paginate(page: params[:d_page], per_page: 18)
+    @beverages = Recipe.filtered_beverages.order("created_at DESC").paginate(page: params[:b_page], per_page: 18)
 
   end
 

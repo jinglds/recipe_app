@@ -5,7 +5,7 @@
       <%= link_to image_tag(feed_item.image_url(:thumb).to_s), feed_item %>
     </div>
     <div class="media-body span6">
-      <span class="recipe-name-thumb"><%= link_to feed_item.name, feed_item %></span><br>
+      <span class="recipe-name-thumb-black"><%= link_to feed_item.name, feed_item %></span><br>
          <small>
           <i>
             <span class="user">
@@ -13,13 +13,12 @@
             </span>
             <span class="timestamp">
               Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-            </span> <br>
+            </span> 
           </i>
            <!-- <i><%= feed_item.description %></i><br> -->
         </small>
         <div class="recipe-content">
           <small>
-           <br>
           <i class="icon-asterisk"></i> <%= feed_item.level %><br>
           <i class="icon-glass"></i> <%= feed_item.course %><br>
           <i class="icon-time"></i> <%= feed_item.cook_time %> minutes<br>
