@@ -591,7 +591,7 @@ color: #484B48;
   font-weight:bold;
   padding-top: 6px;
   padding-left: 10px;
-  line-height: 20px;
+  line-height: 35px;
   color: #4C4C4C;
 
     &:hover{
@@ -636,47 +636,6 @@ color: #484B48;
 }
 /* ---------recipe thumb---------*/
 
-
-.all-recipe-thumb {
-  height: 300px;
-  border:2px dotted #794FA8;
-  background-color: #F5F5FF;
-  box-shadow: none;
-  padding-bottom: 20px; }
-
-.app-thumb {
-  height: 300px;
-
-  border:2px dotted #93D141;
-  background-color: #CAF2AC;
-  box-shadow: none;
-  padding-bottom: 20px; }
-
-.main-thumb {
-  height: 300px;
-  border: 0 none;
-  background-color: #E0C199;
-  box-shadow: none;
-  padding-bottom: 20px; }
-
-
-
-.des-thumb {
-  height: 300px;
-  border: 0 none;
-  background-color: #FFD9F0;
-  box-shadow: none;
-  border:2px dotted #E6A8C7;
-  padding-bottom: 20px; }
-
-
-
-.bev-thumb {
-  height: 300px;
-  border:2px dotted #794FA8;
-  background-color: #BDD1FF;
-  box-shadow: none;
-  padding-bottom: 20px; }
 
 
 
@@ -762,46 +721,6 @@ color: #484B48;
     }
 }
 
-/*
-.recipe-thumb {
-  border-radius: 5px;
-  float:left;
-  height: 310px; 
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  box-shadow: 1px 1px 3px 1px #CED5D5;
-  border: 2px dotted #C2A366;
-  margin-bottom: 5px;
-  &:hover{
-    box-shadow: 2px 2px 3px 1px   #C2A366;
-    background-color:   #FFFAF5;
-  }
-} 
-
-*/
-
-/*.recipe-image-thumb{*/
-  /*border: 1px solid #9BA39C;*/
-/*}
-.recipe-content{
-  line-height: 40%;
-}
-
-.recipe-action{
-  line-height: 70%;
-}
-
-.thumbnails li {
-    width: 150px;
-    height: 100px;
-    background: red;*/
-/*    float: none !important;  to overwrite the default property on the bootstrap stylesheet 
-    display: inline-block;
-    *display: inline; /* ie7 support */
-    /*zoom: 1;*/
-/*}*/
 
 
 /* ----- carousel ----- */

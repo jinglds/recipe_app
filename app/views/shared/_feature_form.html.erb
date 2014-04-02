@@ -1,0 +1,9 @@
+<div id="feature_form">
+	<% if @recipe.featured? %>
+    	<%= render 'recipes/unfeature' %> 
+    <% else %>
+        
+        <%= render 'recipes/feature' %>
+     <% end %>
+ </div>
+      

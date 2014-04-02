@@ -1,0 +1,7 @@
+<div id="like_form">
+  <% if @user.voted_up_on? @recipe %>
+    <%= render 'recipes/unlike' %>            
+  <% else %>
+    <%= render 'recipes/like' %>
+  <% end %>  
+</div>

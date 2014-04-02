@@ -1,1 +1,2 @@
-$('#comments').html("<%= escape_javascript(render(:partial => @micropost.comments)) %>");
+$('#comment_item').html("<%= escape_javascript(render('comments/comment_item', comments: @comment_items)) %>");
+$('#new_comment')[0].reset()

@@ -115,6 +115,10 @@ class RecipesController < ApplicationController
     # if @recipe.toggle!(:featured)
     if @recipe.update_attributes(featured: true)
       redirect_to root_url, notice: "Successfully feature recipe" 
+      # respond_to do |format|
+      #   format.html 
+      #   format.js
+    # end
     else
      render redirect_to root_url
     end 
@@ -125,6 +129,11 @@ class RecipesController < ApplicationController
     # if @recipe.toggle!(:featured)
     if @recipe.update_attributes(featured: false)
       redirect_to root_url, notice: "Successfully unfeature recipe" 
+
+      # respond_to do |format|
+      #   format.html 
+      #   format.js
+    # end
     else
      render redirect_to root_url
     end 
@@ -142,13 +151,24 @@ class RecipesController < ApplicationController
   def upvote
     @recipe = Recipe.find(params[:id])
     @recipe.liked_by current_user
-    redirect_to @recipe
+    
+
+    respond_to do |format|
+      format.html { redirect_to @recipe }
+      format.js
+    end
+
   end
 
   def downvote
     @recipe = Recipe.find(params[:id])
     @recipe.downvote_from current_user
-    redirect_to @recipe
+   
+
+    respond_to do |format|
+      format.html { redirect_to @recipe }
+      format.js
+    end
   end
 
   private

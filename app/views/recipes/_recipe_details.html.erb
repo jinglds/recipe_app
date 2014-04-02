@@ -35,21 +35,24 @@
       </div>
       <br>
       <div class="row-fluid ">
-        <div class="span12 recipe-content-detail center"><div >
-          [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ]
-          <small>
+        <div class="span12 recipe-content-detail center">
+          <div class="row">
+            <div class="span12">
+              <div id="like_count">
+              [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ] 
+            </div>
+              <small>
 
-            <% if signed_in? %>
-            <% if @user.voted_up_on? @recipe %>
-              <%= link_to "UnFav", dislike_recipe_path(@recipe), method: :put %>              
-            <% else %>
-              <%= link_to "Fav it!", like_recipe_path(@recipe), method: :put  %>
-            <% end %>
-            <% end %>
+            <%= render 'shared/like_form' if signed_in? %>
+
+
           </small>
+            </div>            
+          </div>        
+          
         </div>
 
-        </div>
+        
       </div>
     </div>
   </div>
@@ -89,13 +92,20 @@
 
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
     <%= link_to 'Back to All Recipes', recipes_path %> 
-    <% if current_user.try(:admin?)%>
-      <% if @recipe.featured? %>
-        <%= link_to '| unfeature', unfeature_recipe_path(@recipe) %> 
-      <% else %>
-        <%= link_to '| feature', feature_recipe_path(@recipe) %> 
+    <!---
+    <div id="feature_form">
+      <%= render 'shared/feature_form' if current_user.try(:admin?) %>
+    </div>
+      -->
+
+      <% if current_user.try(:admin?)%>
+        <% if @recipe.featured? %>
+          <%= link_to ' | unfeature', unfeature_recipe_path(@recipe) %> 
+        <% else %>
+          <%= link_to ' | feature', feature_recipe_path(@recipe) %> 
+        <% end %>
       <% end %>
-    <% end %>
+    
 
     </div>
   </div>

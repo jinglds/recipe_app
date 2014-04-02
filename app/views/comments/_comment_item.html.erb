@@ -1,4 +1,5 @@
-<li id="<%= comment_item.id %>" >
+<% comments.each do |comment_item| %>
+<li >
   <div class="comment_block">
     <%= link_to gravatar_for(comment_item.user), comment_item.user %>
     <span class="user">
@@ -19,3 +20,4 @@
     <% end %>
   </div>
 </li>
+<% end %>

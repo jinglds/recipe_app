@@ -9,11 +9,15 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
     @comment.recipe = @recipe
     @comment.user = current_user
+    @comment_items = @recipe.comments
 
       # respond_to do |format|
     if @comment.save
        flash[:success] = "Comment created!"
-       redirect_to @recipe
+       respond_to do |format|
+        format.html {redirect_to @recipe}
+        format.js
+      end
     else
       render @recipe
     end

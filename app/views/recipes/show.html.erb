@@ -3,4 +3,20 @@
 <% if signed_in? %>
 <%= render 'shared/comment_form' %>
 <% end %>
-<%= render 'comments/comment_feed' %>
+<div id="comment_feed">
+	<div class="row">
+	<h3 ><div id="comments_count">Comments (<%= @comment_items.count %>)</h3>
+	</div>
+	<div class="row">
+	  <ul class="recipes unstyle">
+	  	<div id="comment_item">
+	  		<%= render 'comments/comment_item', comments: @comment_items %>
+	  	</div>
+	    
+	  </ul>
+
+	  <%= will_paginate @comment_items %>
+
+
+</div>
+</div>

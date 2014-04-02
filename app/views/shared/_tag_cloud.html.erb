@@ -1,8 +1,8 @@
-
-<h3 class="section-title">Recipe Tags</h3>
-
-<div id="tag_cloud span10">
-  <% tag_cloud Recipe.tag_counts, %w{s m l} do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
+<div class="span10">
+	<h3 class="section-title">Recipe Tags</h3>
+	<div id="tag_cloud ">
+	  <% tag_cloud Recipe.tag_counts, %w{s m l} do |tag, css_class| %>
+	    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+	  <% end %>
+	</div>
 </div>
