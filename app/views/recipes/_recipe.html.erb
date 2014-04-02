@@ -30,11 +30,13 @@
     </span> <br>
     <div class="pull-right">
       <i class="icon-heart"></i><%= recipe.votes.up.count %>
-      <% if current_user?(recipe.user) %>
+      <% if current_user?(recipe.user)  %>
       
         <%= link_to " | delete", recipe, method: :delete,
                                    data: { confirm: "You sure?" },
                                    title: recipe.name %>
+      
+        
       <% end %>
        
       <% if current_user.try(:admin?)%>

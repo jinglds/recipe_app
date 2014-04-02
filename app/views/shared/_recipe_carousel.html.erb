@@ -1,5 +1,5 @@
- 
-<h3 class=" search-title heading-title"><%= link_to "Featured Recipes", recipes_path %></h3>
+<!-- <div class="block-container"> -->
+  <h3 class=" search-title heading-title"><%= link_to "Featured Recipes", recipes_path %></h3>
 
 <div class="recipe-carousel"> 
 <div id="myCarousel" class="carousel slide featured-carousel">
@@ -20,8 +20,18 @@
               <div id="carousel-recipe-name">
                 <%= @featured_recipes.first.name %>
               </div>
-              <div id="carousel-recipe-details">
+              <div id="carousel-recipe-description">
                 <%= @featured_recipes.first.description %>
+              </div>
+              <div id="carousel-recipe-details">
+                <ul class="inline pull-right">
+                  <small>
+                    <i class="icon-asterisk icon-white"></i> <%= @featured_recipes.first.level %>
+                    <i class="icon-glass icon-white"></i> <%= @featured_recipes.first.course[0..0].upcase %>
+                    <i class="icon-time icon-white"></i> <%= @featured_recipes.first.cook_time %> 
+                    <i class="icon-user icon-white"></i> <%= @featured_recipes.first.serving %> 
+                  </small>
+                </ul>
               </div>
             </div>
         </div>
@@ -39,8 +49,18 @@
               <div id="carousel-recipe-name">
                 <%= @featured_recipes[1].name %>
               </div>
-              <div id="carousel-recipe-details">
+              <div id="carousel-recipe-description">
                 <%= @featured_recipes[1].description %>
+              </div>
+              <div id="carousel-recipe-details">
+                <ul class="inline pull-right">
+                  <small>
+                    <i class="icon-asterisk icon-white"></i> <%= @featured_recipes[1].level %>
+                    <i class="icon-glass icon-white"></i> <%= @featured_recipes[1].course[0..0].upcase %>
+                    <i class="icon-time icon-white"></i> <%= @featured_recipes[1].cook_time %> 
+                    <i class="icon-user icon-white"></i> <%= @featured_recipes[1].serving %> 
+                  </small>
+                </ul>
               </div>
             </div>
         </div>
@@ -55,8 +75,18 @@
               <div id="carousel-recipe-name">
                 <%= @featured_recipes[2].name %>
               </div>
-              <div id="carousel-recipe-details">
+              <div id="carousel-recipe-description">
                 <%= @featured_recipes[2].description %>
+              </div>
+              <div id="carousel-recipe-details">
+                <ul class="inline pull-right">
+                  <small>
+                    <i class="icon-asterisk icon-white"></i> <%= @featured_recipes[2].level %>
+                    <i class="icon-glass icon-white"></i> <%= @featured_recipes[2].course[0..0].upcase %>
+                    <i class="icon-time icon-white"></i> <%= @featured_recipes[2].cook_time %> 
+                    <i class="icon-user icon-white"></i> <%= @featured_recipes[2].serving %> 
+                  </small>
+                </ul>
               </div>
             </div>
         </div>
@@ -69,3 +99,4 @@
 </div>
 
 </div>
+<!-- </div>  -->

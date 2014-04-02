@@ -453,8 +453,6 @@ color: #484B48;
 .heading-title{
   font-size:x-large;
   font-weight:bold;
-  padding-top: 5px;
-  padding-bottom: 5px;
   padding-left: 20px;
   padding-right: 20px;
   color: white;
@@ -508,8 +506,8 @@ color: #484B48;
 .search-title{
   font-size:x-large;
   font-weight:bold;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 20px;
   color:white;
@@ -518,12 +516,13 @@ color: #484B48;
 
 
 .search-block{
-  background-color: #FDD7D7;
+  /*background-color: #FDD7D7;*/
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
   /*border-radius:2px;*/
+  margin: 10px;
   box-shadow: 2px 2px 3px 1px   #CED5D5;
   &:hover{
     box-shadow: 2px 2px 3px 1px  #FCC2C9;
@@ -533,7 +532,9 @@ color: #484B48;
 
 }
 
-
+#tag-block{
+  padding: 10px;
+}
 .v-center{
   vertical-align: text-top;
 }
@@ -607,8 +608,7 @@ color: #484B48;
 }
 
 .recipe-image-detail{
-  max-height: 600px;
-  max-width: 600px;
+  margin-left: 30px;
 }
 
 .recipe-content-detail{
@@ -728,11 +728,11 @@ color: #484B48;
 .featured-carousel{
   background-color: black;
   height: 420px;
-  width: 600px;
+  width: 560px;
 }
 
 .recipe-carousel{
-  padding-left: 30px;
+  text-align: center;
 }
 
 #carousel-recipe-name{
@@ -741,6 +741,19 @@ color: #484B48;
   font-weight:bold;
   color: white;
   z-index: auto;
+  top:5%;
+  left: 5%;
+    &:hover{
+    color: #eb5158;
+  }
+}
+
+#carousel-recipe-description{
+  position: absolute;
+  font-size:100%;
+  color: white;
+  z-index: 10;
+  top: 40%;
   left: 8%;
     &:hover{
     color: #eb5158;
@@ -752,8 +765,8 @@ color: #484B48;
   font-size:100%;
   color: white;
   z-index: 10;
-  top: 30%;
-  left: 8%;
+  top: 70%;
+  left: 75%;
     &:hover{
     color: #eb5158;
   }
@@ -763,7 +776,8 @@ color: #484B48;
 #carousel-container {
     position: relative;
     
-    top: 80%;
+    box-shadow: 1px 1px 3px 1px #CED5D5;
+    /*top: 80%;*/
 }
 
 

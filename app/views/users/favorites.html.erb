@@ -1,4 +1,6 @@
 <% provide(:title, "My Favorites") %>
+
+<h3 class="search-title heading-title">My Favorite Recipes (<%= @user.find_voted_items.count %>)</h3>
 <div class="container" >
 	<%= render @recipes %>
 </div>

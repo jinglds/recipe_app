@@ -2,7 +2,7 @@
 <%= form_for @recipe, :html => {:multipart => true} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <div class="search-title"><h3 >Recipe Details</h3></div>
+    <div ><h3 class="search-title">Recipe Details</h3></div>
     <br>
     <table>
       <div class ="section-container">
@@ -35,10 +35,10 @@
         <td><%= f.label :serving %></td>
         <td><%= f.text_field :serving, placeholder:"2" %></td>
         <td> persons</td>
-      <tr>
+<!--       <tr>
         <td><%= f.label :privacy %></td>
         <td><%= f.collection_select :privacy, FormOptions::RECIPE_PRIVACY,:to_s, :to_s, :include_blank => true %></td>
-      </tr>
+      </tr> -->
 
       <tr>
         <td><%= f.label :image %></td>
@@ -51,7 +51,7 @@
 
 
 
-  <div class="search-title"><h3 >Ingredients</h3></div>
+  <div ><h3 class="search-title">Ingredients</h3></div>
     <br>
 
         <div class ="section-container">
@@ -84,7 +84,7 @@
 
 
 
-<div class="search-title"><h3 >Directions</h3></div>
+<div ><h3 class="search-title">Directions</h3></div>
 <br>
   <table>
     <div class ="section-container">

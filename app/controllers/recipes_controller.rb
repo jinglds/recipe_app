@@ -2,8 +2,6 @@ class RecipesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
-  
-
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
@@ -23,9 +21,18 @@ class RecipesController < ApplicationController
     @recipe.directions.build
   end
 
-  def destroy
+
+
+
+ def destroy
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to root_url
+    redirect_to root_path, notice: "Successfully destroyed recipe."
+
+    # respond_to do |format|
+    #   format.html { redirect_to :back }
+    #   format.js
+    # end
   end
 
   def show
@@ -113,6 +120,7 @@ class RecipesController < ApplicationController
   def feature
     @recipe = Recipe.find(params[:id])
     # if @recipe.toggle!(:featured)
+
     if @recipe.update_attributes(featured: true)
       redirect_to root_url, notice: "Successfully feature recipe" 
       # respond_to do |format|
@@ -125,7 +133,9 @@ class RecipesController < ApplicationController
   end
 
   def unfeature
+
     @recipe = Recipe.find(params[:id])
+
     # if @recipe.toggle!(:featured)
     if @recipe.update_attributes(featured: false)
       redirect_to root_url, notice: "Successfully unfeature recipe" 
@@ -140,12 +150,7 @@ class RecipesController < ApplicationController
   end
 
 
-  def destroy
-    @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    redirect_to recipes_url, notice: "Successfully destroyed recipe."
-  end
-
+ 
 
 
   def upvote

@@ -1,68 +1,67 @@
-
-  <div class="row-fluid">
-    <div class="span6">
-      <%= image_tag @recipe.image_url(:big_thumb).to_s, class: " recipe-image-detail img-polaroid" %>
+<div class="row-fluid">
+  <div ><h3 class="search-title">Recipe Details</h3></div>
+</div>
+<div class="row-fluid"></div>
+  <div class="span5">
+    <div class="recipe_image_detail"></div>
+    <%= image_tag @recipe.image_url(:big_thumb).to_s, class: " recipe-image-detail img-polaroid" %>
+  </div>
+  <div class=" span6 "><br><br>
+    <div class="recipe-name-title heading-title center">
+      <%= link_to @recipe.name, @recipe %> 
     </div>
-    <div class=" span6 "><br><br>
-      <div class="recipe-name-title heading-title center">
-        <%= link_to @recipe.name, @recipe %> 
+    <br>
+    <blockquote class="center">
+      <p><%= @recipe.description %></p>
+      <small>
+        by <%= link_to @recipe.user.name, @recipe.user %> <cite title="Source Title"><%= time_ago_in_words(@recipe.created_at) %> ago.</cite>
+      </small>
+    </blockquote>
+    <br><p>
+    <div class="row-fluid">
+      <div class="span12 center">
+        <ul class="inline ">
+          <li>
+            <i class="icon-asterisk "></i> <%= @recipe.level %>
+          </li>
+          <li>
+            <i class="icon-glass"></i> <%= @recipe.course %>
+          </li>
+          <li>
+            <i class="icon-time"></i> <%= @recipe.cook_time %> minutes
+          </li>
+          <li>
+            <i class="icon-user"></i> <%= pluralize(@recipe.serving, "serving") %>  
+          </li>
+        </ul>
       </div>
-      <br>
-      <blockquote class="center">
-        <p><%= @recipe.description %></p>
-        <small>
-          by <%= link_to @recipe.user.name, @recipe.user %> <cite title="Source Title"><%= time_ago_in_words(@recipe.created_at) %> ago.</cite>
-        </small>
-      </blockquote>
-      <br><p>
-      <div class="row-fluid">
-        <div class="span12 center">
-          <ul class="inline ">
-            <li>
-              <i class="icon-asterisk "></i> <%= @recipe.level %>
-            </li>
-            <li>
-              <i class="icon-glass"></i> <%= @recipe.course %>
-            </li>
-            <li>
-              <i class="icon-time"></i> <%= @recipe.cook_time %> minutes
-            </li>
-            <li>
-              <i class="icon-user"></i> <%= pluralize(@recipe.serving, "serving") %>  
-            </li>
-          </ul>
-        </div>
-      </div>
-      <br>
-      <div class="row-fluid ">
-        <div class="span12 recipe-content-detail center">
-          <div class="row">
-            <div class="span12">
-              <div id="like_count">
-              [ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ] 
-            </div>
-              <small>
+    </div>
+    <br>
+    <div class="row-fluid ">
+      <div class="span12 recipe-content-detail center">
+        <div class="row">
+          <div class="span12">
+            <div id="like_count">
+            [ <%= @recipe.votes.up.count %><%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ] 
+          </div>
+          <small>
 
-            <%= render 'shared/like_form' if signed_in? %>
-
+          <%= render 'shared/like_form' if signed_in? %>
 
           </small>
-            </div>            
-          </div>        
-          
-        </div>
-
-        
+          </div>            
+        </div>         
       </div>
     </div>
   </div>
+
 
 
 <br><br>
 
   <div class="row-fluid">
     <div class="span in-di-block ">
-      <div class="head-block search-title"><h3 >Ingredients</h3></div><br>
+      <div ><h3 class="search-title">Ingredients</h3></div><br>
       <ul class="in-di">
         <% for ingredient in @recipe.ingredients %>
         <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
@@ -74,7 +73,7 @@
 <br>
   <div class="row-fluid">
     <div class="span in-di-block">
-      <div class="head-block search-title"><h3 >Directions</h3></div><br>
+      <div ><h3 class="search-title" >Directions</h3></div><br>
         <ol class="in-di">
           <% for direction in @recipe.directions %>
           <li><%= h direction.content %> </li>
@@ -89,9 +88,17 @@
     <div class="span">
             
             <p><br><b>TAG: </b><%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-
+    <% if current_user?(@recipe.user)  %>
     <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+    <% end %>
     <%= link_to 'Back to All Recipes', recipes_path %> 
+    <% if current_user?(@recipe.user)  %>
+        <%= link_to " | delete", @recipe, method: :delete,
+                                   data: { confirm: "You sure?" },
+                                   title: @recipe.name %>
+ 
+        
+      <% end %>
     <!---
     <div id="feature_form">
       <%= render 'shared/feature_form' if current_user.try(:admin?) %>

@@ -3,27 +3,33 @@
 <% if signed_in? %>
 
 <div class="row-fluid">
-  <div class="span9">
+  <div class="span12 ">
     <%= render 'shared/recipe_carousel' %>
+    <br>
   </div>
-  <div class="span3">
-    <br><br><br>
-    <%= render 'shared/search_block' %>
-  </div>
+  
 </div>
 <p>
   <br>
 <div class="row-fluid">
-  <div class="span3">
-    <%= render 'shared/tag_cloud' %>
+  <div class="span4">
+    
+    <div><%= render 'shared/search_block' %></div>
+    <div> <%= render 'shared/tag_cloud' %></div>
+  
+    
+    
+ 
   </div>
-  <div class="span8 offset1">
+  <div class="span8">
     <%= render 'recipes/lastest_feed' %>
   </div>
 </div>
 
 <div class="row-fluid">
+  <div id="recipe_index">
   <%= render 'recipes/recipe_index' %> 
+</div>
 </div>
 
 
@@ -46,16 +52,16 @@
     <%= render 'shared/recipe_carousel' %>
   </div>
   <div class="span3">
-    <br><br><br>
-    <%= render 'shared/search_block' %>
+    
+    <div><%= render 'shared/search_block' %></div>
+    <div> <%= render 'shared/tag_cloud' %></div>
+  
+    
+    
+ 
   </div>
-</div>
-<p>
   <br>
-<div class="row-fluid">
-  <div class="span3">
-    <%= render 'shared/tag_cloud' %>
-  </div>
+
 
 
 </div>

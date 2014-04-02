@@ -1,2 +1,2 @@
 $("#like_form").html("<%= escape_javascript(render('recipes/like')) %>")
-$("#like_count").html('[ <%= @recipe.votes.up.count %> <%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ] ')
+$("#like_count").html('[ <%= @recipe.votes.up.count %><%= image_tag ('heart3.png'), class: " recipe-image-detail", id: "like-btn" %> ] ')
