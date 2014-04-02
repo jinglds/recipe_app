@@ -11,8 +11,8 @@ class RecipesController < ApplicationController
       flash[:success] = "Recipe created!"
       redirect_to @recipe
     else
-      @feed_items = []
-      render 'static_pages/home'
+      # @feed_items = []
+      render :new
     end
   end
 

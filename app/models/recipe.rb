@@ -14,9 +14,12 @@ class Recipe < ActiveRecord::Base
   validates_associated :directions, presence: true
 
   default_scope -> { order('created_at DESC') }
-  validates :name, presence: true, length: { maximum: 140 }
+  validates :name, presence: true, length: { maximum: 20 }
+
   validates :user_id, presence: true
-  mount_uploader :image, ImageUploader
+  validates :cook_time, numericality: { only_integer: true }
+  validates :serving, numericality: true 
+    mount_uploader :image, ImageUploader
   # validates :image, presence: false
 
   scope :all_appetizers, where(course: 'appetizer')

@@ -26,7 +26,7 @@
 
   <div class="field">
     <small><%= f.label :level_eq, "Level:" %></small>
-  <%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level, :level, :level), include_blank: true, prompt:"Select level of difficulty" %>
+  <%= f.select :level_eq, options_from_collection_for_select(Recipe.unique_by_level.order("level DESC"), :level, :level), include_blank: true, prompt:"Select level of difficulty" %>
   </div>
 
 
