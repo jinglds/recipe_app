@@ -64,7 +64,7 @@
       <div ><h3 class="search-title">Ingredients</h3></div><br>
       <ul class="in-di">
         <% for ingredient in @recipe.ingredients %>
-        <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %></li>
+        <li><%= h ingredient.amount %> <%= h ingredient.unit %> <%= h ingredient.item %><% if !ingredient.alternative.blank? %><small>, <b>alternative: </b><%= h ingredient.alternative %> </small><% end %></li>
         <% end %>
       </ul>
     </div>
@@ -115,4 +115,4 @@
     
 
     </div>
-  </div>
+  

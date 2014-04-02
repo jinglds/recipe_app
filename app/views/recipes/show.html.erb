@@ -1,12 +1,13 @@
 <% provide(:title, @recipe.name) %>
 <%= render 'recipes/recipe_details'%>
-<% if signed_in? %>
-<%= render 'shared/comment_form' %>
-<% end %>
+
 <div id="comment_feed">
 	<div class="row">
 	<h3 ><div id="comments_count">Comments (<%= @comment_items.count %>)</h3>
 	</div>
+	<% if signed_in? %>
+<%= render 'shared/comment_form' %>
+<% end %>
 	<div class="row">
 	  <ul class="recipes unstyle">
 	  	<div id="comment_item">
